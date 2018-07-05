@@ -70,8 +70,8 @@ module Simplify where
         x′ * (y′ * d)  ≡⟨ sym (cong (_*_ x′) y-eq)  ⟩
         x′ * y         ∎
 
-  fromCoprimWitness : {n : ℕ} → {d : ℕ} → Coprime n d → True (Coprimality.coprime? n d)
-  fromCoprimWitness = fromWitness
+  fromCoprimeWitness : {n : ℕ} → {d : ℕ} → Coprime n d → True (Coprimality.coprime? n d)
+  fromCoprimeWitness = fromWitness
 
   open ℙ
 
@@ -83,7 +83,7 @@ module Simplify where
     { fst = record
       { numerator = x′
       ; denominator-1 = y′
-      ; isCoprime = fromCoprimWitness coprime-prf
+      ; isCoprime = fromCoprimeWitness coprime-prf
       }
     ; snd = e
     }
@@ -91,7 +91,14 @@ module Simplify where
   (n ÷₌ suc d) | MkSimp .1 zero e coprime-prf | ≡.refl with 1+≢*0 (d ℕ.+ 0) n (≡.sym e)
   (n ÷₌ suc d) | MkSimp .1 zero e coprime-prf | ≡.refl | ()
 
-open Simplify using (_÷₌_)
+  fromNat : ℕ → ℙ
+  fromNat n = record
+    { numerator = n
+    ; denominator-1 = zero
+    ; isCoprime = fromCoprimeWitness (Coprimality.sym (Coprimality.1-coprimeTo n))
+    }
+
+open Simplify public using (_÷₌_; fromNat)
 
 infixl 7 _÷_
 _÷_ : ℕ → (d : ℕ) → {≢0 : False (d ℕ.≟ 0)} → ℙ
