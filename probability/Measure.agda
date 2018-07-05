@@ -2,11 +2,19 @@ module Measure where
 
 open import Data.Nat as ℕ
   using (ℕ; suc; zero)
+open import Data.Nat.Show renaming (show to showℕ)
+
 open import Data.Nat.Coprimality as Coprimality
   using (Coprime)
 
 open import Relation.Nullary.Decidable
   using (True; False; toWitness; fromWitness)
+
+open import Data.Product
+  using (_,_; ∃; ∃-syntax; proj₁; proj₂)
+
+open import Data.String as String
+  using (String)
 
 record ℙ : Set where
   field
@@ -19,6 +27,7 @@ record ℙ : Set where
 
   coprime : Coprime numerator denominator
   coprime = toWitness isCoprime
+open ℙ
 
 module Simplify where
   open import Relation.Binary.PropositionalEquality as ≡ using (_≡_; _≢_; cong; sym)
@@ -26,15 +35,16 @@ module Simplify where
   open import Data.Empty using (⊥-elim)
   open import Data.Nat.Divisibility using (divides)
   open import Data.Product using (_,_)
+  open import Data.Nat using (_*_)
 
   record Simp (x : ℕ) (y : ℕ) : Set where
     constructor MkSimp
     field
       x′ y′ : ℕ
-      eq-prf : x ℕ.* y′ ≡ x′ ℕ.* y
+      eq-prf : x * y′ ≡ x′ * y
       coprime-prf : Coprime x′ y′
 
-  1+≢*0 : ∀ x y → suc x ≢ y ℕ.* 0
+  1+≢*0 : ∀ x y → suc x ≢ y * 0
   1+≢*0 x zero ()
   1+≢*0 x (suc y) = 1+≢*0 x y
 
@@ -43,8 +53,6 @@ module Simplify where
   simp x y-1 | GCD.Bézout.result 0 (GCD.GCD.is (_ , divides y′ y-eq) _) _ = ⊥-elim (1+≢*0 y-1 y′ y-eq)
   simp x y-1 | GCD.Bézout.result (suc d-1) (GCD.GCD.is (divides x′ x-eq , divides y′ y-eq) _) bézout = MkSimp x′ y′ eq-prf (Coprimality.Bézout-coprime bézout′)
     where
-      open import Data.Nat using (_*_)
-
       y = suc y-1
       d = suc d-1
 
@@ -62,22 +70,38 @@ module Simplify where
         x′ * (y′ * d)  ≡⟨ sym (cong (_*_ x′) y-eq)  ⟩
         x′ * y         ∎
 
-  convOneWay : {n d : ℕ} → True (Coprimality.coprime? n d) → Coprime n d
-  convOneWay = toWitness
+  fromCoprimWitness : {n : ℕ} → {d : ℕ} → Coprime n d → True (Coprimality.coprime? n d)
+  fromCoprimWitness = fromWitness
 
-  convOtherWay : {n : ℕ} → {d : ℕ} → Coprime n d → True (Coprimality.coprime? n d)
-  convOtherWay = fromWitness
+  open ℙ
 
-  _÷_ : (n : ℕ) → (d : ℕ) → {≢0 : False (d ℕ.≟ 0)} → ℙ
-  (n ÷ zero ) {≢0 = ()}
-  (n ÷ suc d) with simp n d
-  (n ÷ suc d) | MkSimp x′ zero _ coprime-prf = record
-    { numerator = 1
-    ; denominator-1 = zero
-    ; isCoprime = convOtherWay (Coprimality.1-coprimeTo (suc zero))
+  infixl 7 _÷₌_
+  _÷₌_ : (n : ℕ) → (d : ℕ) → {≢0 : False (d ℕ.≟ 0)} → ∃[ p ] (n * denominator p ≡ numerator p * d)
+  (n ÷₌ zero ) {≢0 = ()}
+  (n ÷₌ suc d) with simp n d
+  (n ÷₌ suc d) | MkSimp x′ (suc y′) e coprime-prf = record
+    { fst = record
+      { numerator = x′
+      ; denominator-1 = y′
+      ; isCoprime = fromCoprimWitness coprime-prf
+      }
+    ; snd = e
     }
-  (n ÷ suc d) | MkSimp x′ (suc y′) _ coprime-prf = record
-    { numerator = x′
-    ; denominator-1 = y′
-    ; isCoprime = convOtherWay coprime-prf
-    }
+  (n ÷₌ suc d) | MkSimp x′ zero e coprime-prf with Coprimality.0-coprimeTo-1 (Coprimality.sym coprime-prf)
+  (n ÷₌ suc d) | MkSimp .1 zero e coprime-prf | ≡.refl with 1+≢*0 (d ℕ.+ 0) n (≡.sym e)
+  (n ÷₌ suc d) | MkSimp .1 zero e coprime-prf | ≡.refl | ()
+
+open Simplify using (_÷₌_)
+
+infixl 7 _÷_
+_÷_ : ℕ → (d : ℕ) → {≢0 : False (d ℕ.≟ 0)} → ℙ
+(x ÷ y) {≢0} = proj₁ ((x ÷₌ y) {≢0})
+
+_+_ : ℙ → ℙ → ℙ
+x + y = (numerator x ℕ.* denominator y ℕ.+ numerator y ℕ.* denominator x) ÷ (denominator x ℕ.* denominator y)
+
+_*_ : ℙ → ℙ → ℙ
+x * y = (numerator x ℕ.* numerator y) ÷ (denominator x ℕ.* denominator y)
+
+show : ℙ → String
+show p = showℕ (numerator p) String.++ "÷" String.++ showℕ (denominator p)
