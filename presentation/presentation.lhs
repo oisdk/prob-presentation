@@ -90,8 +90,24 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
   \begin{code}
 die = Dist [(1,frac 1 6), (2,frac 1 6), (3,frac 1 6), (4,frac 1 6), (5,frac 1 6), (6,frac 1 6)]
   \end{code} 
+\end{frame}
+\begin{frame}
+  To turn this representation into a DSL, we can use a popular abstraction:
+  monads. These will allow us to use do-notation, a syntax for writing
+  imperative-looking programs:
+  \begin{code}
+addPair :: Dist Integer -> Dist Integer
+addPair dist = do
+  x <- dist
+  y <- dist
+  return (x + y)
+  \end{code}
 
-  
+  For this probabilistic language, we need to describe the semantics of
+  assignment ($\leftarrow$ in the example above).
+\end{frame}
+\begin{frame}
+  We can defin
 \end{frame}
 \end{document}
 

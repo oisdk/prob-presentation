@@ -16,5 +16,3 @@ The first approach\footfullcite{erwig_functional_2006} starts with a simple
 \>[B]{}\Varid{die}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\mathrm{1},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{2},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{3},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{4},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{5},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{6},\frac{\mathrm{1}}{\mathrm{6}})\mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
-

@@ -352,8 +352,32 @@ expect(lambda y: 5 == y, roll_die, 100)
 \>[B]{}\Varid{die}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\mathrm{1},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{2},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{3},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{4},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{5},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{6},\frac{\mathrm{1}}{\mathrm{6}})\mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+\end{frame}
+\begin{frame}
+  To turn this representation into a DSL, we can use a popular abstraction:
+  monads. These will allow us to use do-notation, a syntax for writing
+  imperative-looking programs:
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{addPair}\mathbin{::}\Conid{Dist}\;\Conid{Integer}\to \Conid{Dist}\;\Conid{Integer}{}\<[E]%
+\\
+\>[B]{}\Varid{addPair}\;\Varid{dist}\mathrel{=}\textcolor{BlueViolet}{\textbf{do}}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{x}\leftarrow \Varid{dist}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{y}\leftarrow \Varid{dist}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{return}\;(\Varid{x}\mathbin{+}\Varid{y}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
 
-  
+  For this probabilistic language, we need to describe the semantics of
+  assignment ($\leftarrow$ in the example above).
 \end{frame}
 \end{document}
 

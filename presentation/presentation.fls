@@ -438,6 +438,8 @@ OUTPUT presentation.ptb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT presentation.ptb
+OUTPUT presentation.ptb
+INPUT presentation.ptb
 OUTPUT presentation.nav
 OUTPUT presentation.toc
 OUTPUT presentation.snm
