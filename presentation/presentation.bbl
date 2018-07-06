@@ -1,0 +1,115 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{erwig_functional_2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=92e5385c41432644fcded54d78d51b7d}{%
+           family={Erwig},
+           familyi={E\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=73dd1a3cbfe9046cd55140ad1cc8775b}{%
+           family={Kollmansberger},
+           familyi={K\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fc5725cd43998c8465a80b617716dfe}
+      \strng{fullhash}{1fc5725cd43998c8465a80b617716dfe}
+      \strng{bibnamehash}{1fc5725cd43998c8465a80b617716dfe}
+      \strng{authorbibnamehash}{1fc5725cd43998c8465a80b617716dfe}
+      \strng{authornamehash}{1fc5725cd43998c8465a80b617716dfe}
+      \strng{authorfullhash}{1fc5725cd43998c8465a80b617716dfe}
+      \field{sortinit}{E}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{At the heart of functional programming rests the principle of referential transparency, which in particular means that a function f applied to a value x always yields one and the same value y = f(x). This principle seems to be violated when contemplating the use of functions to describe probabilistic events, such as rolling a}
+      \field{issn}{1469-7653, 0956-7968}
+      \field{journaltitle}{Journal of Functional Programming}
+      \field{number}{1}
+      \field{shorttitle}{Functional Pearls}
+      \field{title}{Functional Pearls: {{Probabilistic}} Functional Programming in {{Haskell}}}
+      \field{urlday}{29}
+      \field{urlmonth}{9}
+      \field{urlyear}{2016}
+      \field{volume}{16}
+      \field{year}{2006}
+      \field{urldateera}{ce}
+      \field{pages}{21\bibrangedash 34}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1017/S0956796805005721
+      \endverb
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/EQNUDQV6/PFP_JFP06.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://web.engr.oregonstate.edu/~erwig/papers/abstracts.html\#JFP06a
+      \endverb
+      \verb{url}
+      \verb http://web.engr.oregonstate.edu/~erwig/papers/abstracts.html%5C#JFP06a
+      \endverb
+    \endentry
+    \entry{munroe_xkcd_2007}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=40f308159c00a2e5add1aac4b82befa6}{%
+           family={Munroe},
+           familyi={M\bibinitperiod},
+           given={Randall},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{40f308159c00a2e5add1aac4b82befa6}
+      \strng{fullhash}{40f308159c00a2e5add1aac4b82befa6}
+      \strng{bibnamehash}{40f308159c00a2e5add1aac4b82befa6}
+      \strng{authorbibnamehash}{40f308159c00a2e5add1aac4b82befa6}
+      \strng{authornamehash}{40f308159c00a2e5add1aac4b82befa6}
+      \strng{authorfullhash}{40f308159c00a2e5add1aac4b82befa6}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{xkcd}
+      \field{month}{2}
+      \field{note}{Title text: RFC 1149.5 specifies 4 as the standard IEEE-vetted random number.}
+      \field{title}{Xkcd: {{Random Number}}}
+      \field{urlday}{6}
+      \field{urlmonth}{7}
+      \field{urlyear}{2018}
+      \field{year}{2007}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/8G6L6YUX/random_number.png
+      \endverb
+      \verb{urlraw}
+      \verb https://xkcd.com/221/
+      \endverb
+      \verb{url}
+      \verb https://xkcd.com/221/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

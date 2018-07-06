@@ -1,5 +1,16 @@
-\documentclass{beamer}
+\documentclass[usenames,dvipsnames]{beamer}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usetheme{metropolis}
 %include polycode.fmt
+
+%subst keyword a = "\textcolor{BlueViolet}{\textbf{" a "}}"
+%format frac a b = "\frac{" a "}{" b "}"
+
+\newcommand{\id}[1]{\textsf{\textsl{#1}}}
+\renewcommand{\Varid}[1]{\textcolor{Sepia}{\id{#1}}}
+\renewcommand{\Conid}[1]{\textcolor{OliveGreen}{\id{#1}}}
+
 \usepackage{listings}
 \usepackage{biblatex}
 \bibliography{../Probability.bib}
@@ -75,5 +86,12 @@ expect(lambda y: 5 == y, roll_die, 100)
   \begin{code}
 newtype Dist a = Dist { runDist :: [(a, Rational)] }
   \end{code}
+  The die now looks like this:
+  \begin{code}
+die = Dist [(1,frac 1 6), (2,frac 1 6), (3,frac 1 6), (4,frac 1 6), (5,frac 1 6), (6,frac 1 6)]
+  \end{code} 
+
+  
 \end{frame}
 \end{document}
+
