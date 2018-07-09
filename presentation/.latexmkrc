@@ -6,7 +6,7 @@ sub mylatex {
   # Run the preprocessor
   system('lhs2TeX', '--poly', '-o', $tex, "$base.lhs") == 0 or return $?;
   # Run pdflatex
-  my $return = system('pdflatex', @_, $tex);
+  my $return = system('xelatex', @_, $tex);
   system "echo INPUT $base.lhs >> $aux_dir1$base.fls";
   return $return;
 }

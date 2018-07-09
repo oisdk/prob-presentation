@@ -1,18 +1,15 @@
-The first approach\footfullcite{erwig_functional_2006} starts with a simple
-  and elegant answer to the second question.
-
-  We'll model a distribution as a list of events, with each possible event
-  tagged with its probability.
-  \begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\textcolor{BlueViolet}{\textbf{newtype}}\;\Conid{Dist}\;\Varid{a}\mathrel{=}\Conid{Dist}\;\{\mskip1.5mu \Varid{runDist}\mathbin{::}[\mskip1.5mu (\Varid{a},\Conid{Rational})\mskip1.5mu]\mskip1.5mu\}{}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-  The die now looks like this:
-  \begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{die}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\mathrm{1},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{2},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{3},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{4},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{5},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{6},\frac{\mathrm{1}}{\mathrm{6}})\mskip1.5mu]{}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
+As we will use this as a DSL, we need to define the language features we used
+  above:
+\begin{lstlisting}[language=Python]
+def mr_smith():
+    child_1 = Child()
+    child_2 = Child()
+    assert child_1.gender == 'boy' or \
+           child_2.gender == 'boy'
+    return [child_1, child_2]
+\end{lstlisting}
+  \begin{enumerate}
+    \item \text{\tt \char61{}} (assignment)
+    \item \text{\tt assert}
+    \item \text{\tt return}
+  \end{enumerate}

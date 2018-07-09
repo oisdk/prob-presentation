@@ -1,7 +1,9 @@
 \documentclass[usenames,dvipsnames]{beamer}
 \usepackage{xcolor}
 \usepackage{amsmath}
+% \setbeameroption{show notes}
 \usetheme{metropolis}
+
 %% ODER: format ==         = "\mathrel{==}"
 %% ODER: format /=         = "\neq "
 %
@@ -266,7 +268,6 @@
 \newcommand{\id}[1]{\textsf{\textsl{#1}}}
 \renewcommand{\Varid}[1]{\textcolor{Sepia}{\id{#1}}}
 \renewcommand{\Conid}[1]{\textcolor{OliveGreen}{\id{#1}}}
-
 \usepackage{listings}
 \usepackage{biblatex}
 \bibliography{../Probability.bib}
@@ -274,56 +275,126 @@
 \author{Donnacha Oisín Kidney}
 \begin{document}
 \frame{\titlepage}
+\frame{\tableofcontents}
+\section{Modeling Probability}
 \begin{frame}
   How do we model stochastic and probabilistic processes in programming
   languages?
 \end{frame}
-\begin{frame}[fragile]
-  The same way we model any other process: using the semantics and features
-  built into the language.
-  \begin{lstlisting}[language=Python]
-from random import randrange
+\subsection{An Example}
+\begin{frame}
+  \frametitle{The Boy-Girl Paradox}
+  \begin{enumerate}
+    \item Mr. Jones has two children. The older child is a girl. What is the
+      probability that both children are girls?
+    \item \label{mrsmith} Mr. Smith has two children. At least one of them is a
+      boy. What is the probability that both children are boys?
+  \end{enumerate}
+  \pause
+  Is the answer to \ref{mrsmith} $\frac{1}{3}$ or $\frac{1}{2}$?
+  \note{Gardner originally wrote that the second question (perhaps surprisingly)
+    has the answer 1/3. However, he later acknowledged the question was
+    ambiguous, and agreed that certain interpretations could correctly conclude
+    its answer was 1/2}
+  \pause
 
-def roll_die():
-  return randrange(1,7)
+  Part of the difficulty in the question is that it's ambiguous: can we use
+  programming languages to lend some precision?
+\end{frame}
+\begin{frame}[fragile, allowframebreaks]
+  \frametitle{An Ad-Hoc Solution}
+  Using normal features built in to the language.
+  \begin{lstlisting}[language=Python]
+from random import randrange, choice
+
+class Child:
+    def __init__(self):
+        self.gender = choice(("boy", "girl"))
+        self.age = randrange(18)
+  \end{lstlisting}
+  \begin{lstlisting}[language=Python]
+from operator import attrgetter
+
+def mr_jones():
+    child_1 = Child()
+    child_2 = Child()
+    eldest = max(child_1, child_2,
+                 key=attrgetter('age'))
+    assert eldest.gender == 'girl'
+    return [child_1, child_2]
+  \end{lstlisting}
+  \begin{lstlisting}[language=Python]
+
+def mr_smith():
+    child_1 = Child()
+    child_2 = Child()
+    assert child_1.gender == 'boy' or \
+           child_2.gender == 'boy'
+    return [child_1, child_2]
   \end{lstlisting}
 \end{frame}
+\subsection{Unclear Semantics}
 \begin{frame}[fragile]
-  Problem: semantics are unclear.\footfullcite{munroe_xkcd_2007}
-
+  \frametitle{Unclear semantics}
+  What contracts are guaranteed by probabilistic functions? What does it mean
+  \emph{exactly} for a function to be probabilistic? Why isn't the
+  following\footfullcite{munroe_xkcd_2007} ``random''?
   \begin{lstlisting}[language=c]
 int getRandomNumber()
 {
   return 4; // chosen by fair dice roll.
             // guaranteed to be random.
 }
-  \end{lstlisting}
+  \end{lstlisting} 
 \end{frame}
 \begin{frame}[fragile]
+  What about this?
   \begin{lstlisting}[language=Python]
-randomly_chosen = roll_die()
-
-def roll_die_2():
-    return randomly_chosen
+  children_1 = [Child(), Child()]
+  children_2 = [Child()] * 2
   \end{lstlisting}
-
-  What's the difference between \text{\tt roll\char95{}die} and \text{\tt roll\char95{}die\char95{}2}?
+  How can we describe the difference between \text{\tt children\char95{}1} and
+  \text{\tt children\char95{}2}?
+  \note{The first runs two random processes; the second only one. Both have the
+    same types, both look like they do the same thing. We need a good way to
+    describe the difference between them.}
 \end{frame}
-\begin{frame}[fragile,fragile]
-  Problem: not as powerful as we'd like.
-\begin{lstlisting}[language=Python]
-def expect(predicate, process, iterations):
-    success = sum(predicate(process())
-                  for _ in range(iterations))
-    return success / iterations
+\subsection{Underpowered}
+\begin{frame}[fragile]
+  \frametitle{Underpowered}
+  There are many more things we may want to do with probability distributions.
 
-expect(lambda y: 5 == y, roll_die, 100)
-0.17
-\end{lstlisting}
+  What about expectations?
+  \begin{lstlisting}[language=Python]
+def expect(predicate, process, iterations=100):
+    success, tot = 0, 0
+    for _ in range(iterations):
+        try:
+            success += predicate(process())
+            tot += 1
+        except AssertionError:
+            pass
+    return success / tot
+  \end{lstlisting}
+  \note{This solution is both inefficient and inexact. Also, we may want to
+    express other attributes of probability distributions: independence, for
+    example.}
 \end{frame}
+\begin{frame}[fragile]
+  \frametitle{The Ad-Hoc Solution}
+  \begin{lstlisting}[language=Python]
+expect(lambda children: all(child.gender == 'girl'
+                            for child in children),
+       mr_jones)
+expect(lambda children: all(child.gender == 'boy'
+                            for child in children),
+       mr_smith)
+  \end{lstlisting}
+\end{frame}
+\section{Monadic Modeling}
 \begin{frame}
-  Solution: design a DSL for probabilistic programs which solves the problems
-  above.
+  \frametitle{A DSL}
+  What we're approaching is a DSL, albeit an unspecified one.
 
   Three questions for this DSL:
   \begin{itemize}
@@ -333,51 +404,148 @@ expect(lambda y: 5 == y, roll_die, 100)
       from the language? Are there any interesting symmetries?
   \end{itemize}
 \end{frame}
+\subsection{The Erwig And Kollmansberger Approach}
 \begin{frame}[fragile]
-  The first approach\footfullcite{erwig_functional_2006} starts with a simple
-  and elegant answer to the second question.
-
-  We'll model a distribution as a list of events, with each possible event
-  tagged with its probability.
+  \frametitle{The Erwig And Kollmansberger Approach}
+  First approach\footfullcite{erwig_functional_2006}:
   \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\textcolor{BlueViolet}{\textbf{newtype}}\;\Conid{Dist}\;\Varid{a}\mathrel{=}\Conid{Dist}\;\{\mskip1.5mu \Varid{runDist}\mathbin{::}[\mskip1.5mu (\Varid{a},\Conid{Rational})\mskip1.5mu]\mskip1.5mu\}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-  The die now looks like this:
+  A distribution is a list of possible events, each tagged with a probability.
+\end{frame}
+\begin{frame}
+  A random integer, then, is:
   \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{die}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\mathrm{1},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{2},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{3},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{4},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{5},\frac{\mathrm{1}}{\mathrm{6}}),(\mathrm{6},\frac{\mathrm{1}}{\mathrm{6}})\mskip1.5mu]{}\<[E]%
+\>[B]{}\textcolor{BlueViolet}{\textbf{type}}\;\Conid{RandInt}\mathrel{=}\Conid{Dist}\;\Conid{Int}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+  This lets us encode (in the types) the difference between:
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[3]{}\Varid{children\char95 1}\mathbin{::}[\mskip1.5mu \Conid{Dist}\;\Conid{Child}\mskip1.5mu]{}\<[E]%
+\\
+\>[3]{}\Varid{children\char95 2}\mathbin{::}\Conid{Dist}\;[\mskip1.5mu \Conid{Child}\mskip1.5mu]{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\end{frame}
+\begin{frame}[fragile]
+  As we will use this as a DSL, we need to define the language features we used
+  above:
+\begin{lstlisting}[language=Python]
+def mr_smith():
+    child_1 = Child()
+    child_2 = Child()
+    assert child_1.gender == 'boy' or \
+           child_2.gender == 'boy'
+    return [child_1, child_2]
+\end{lstlisting}
+  \begin{enumerate}
+    \item \text{\tt \char61{}} (assignment)
+    \item \text{\tt assert}
+    \item \text{\tt return}
+  \end{enumerate}
+\end{frame}
+\begin{frame}
+  \frametitle{Assignment}
+  This is encapsulated by the ``monadic bind'':
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}(\bind )\mathbin{::}\Conid{Dist}\;\Varid{a}\to (\Varid{a}\to \Conid{Dist}\;\Varid{b})\to \Conid{Dist}\;\Varid{b}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+  When we assign to a variable in a probabilistic computation, everything that
+  comes later is conditional on the result of that assignment. We are therefore
+  looking for the probability of the continuation given the left-hand-side; this
+  is encapsulated by multiplication:
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{18}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{18E}{@{}l@{}}%
+\column{21}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{xs}\bind \Varid{f}\mathrel{=}\Conid{Dist}\;{}\<[18]%
+\>[18]{}[\mskip1.5mu {}\<[18E]%
+\>[21]{}(\Varid{y},\Varid{xp}\times\Varid{yp}){}\<[E]%
+\\
+\>[18]{}\mid {}\<[18E]%
+\>[21]{}(\Varid{x},\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}{}\<[E]%
+\\
+\>[18]{},{}\<[18E]%
+\>[21]{}(\Varid{y},\Varid{yp})\leftarrow \Varid{runDist}\;(\Varid{f}\;\Varid{x})\mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \end{frame}
 \begin{frame}
-  To turn this representation into a DSL, we can use a popular abstraction:
-  monads. These will allow us to use do-notation, a syntax for writing
-  imperative-looking programs:
+  \frametitle{Assertion}
+  Assertion is a kind of conditioning: given a statement about an event, it
+  either occurs or it doesn't.
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{14}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{guard}\mathbin{::}\Conid{Bool}\to \Conid{Dist}\;(){}\<[E]%
+\\
+\>[B]{}\Varid{guard}\;\Conid{True}{}\<[14]%
+\>[14]{}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu ((),\mathrm{1})\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{guard}\;\Conid{False}{}\<[14]%
+\>[14]{}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\end{frame}
+\begin{frame}
+  \frametitle{Return}
+  Return is the ``unit'' value for a distribution; the certain event, the
+  unconditional distribution.
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[3]{}\Varid{return}\mathbin{::}\Varid{a}\to \Conid{Dist}\;\Varid{a}{}\<[E]%
+\\
+\>[3]{}\Varid{return}\;\Varid{x}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\Varid{x},\mathrm{1})\mskip1.5mu]{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\end{frame}
+\begin{frame}
+  \frametitle{Putting it all Together}
   \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{addPair}\mathbin{::}\Conid{Dist}\;\Conid{Integer}\to \Conid{Dist}\;\Conid{Integer}{}\<[E]%
+\>[B]{}\Varid{mrSmith}\mathbin{::}\Conid{Dist}\;[\mskip1.5mu \Conid{Child}\mskip1.5mu]{}\<[E]%
 \\
-\>[B]{}\Varid{addPair}\;\Varid{dist}\mathrel{=}\textcolor{BlueViolet}{\textbf{do}}{}\<[E]%
-\\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{x}\leftarrow \Varid{dist}{}\<[E]%
+\>[B]{}\Varid{mrSmith}\mathrel{=}\textcolor{BlueViolet}{\textbf{do}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{y}\leftarrow \Varid{dist}{}\<[E]%
+\>[3]{}\Varid{child1}\leftarrow \Varid{child}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{return}\;(\Varid{x}\mathbin{+}\Varid{y}){}\<[E]%
+\>[3]{}\Varid{child2}\leftarrow \Varid{child}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{guard}\;(\Varid{gender}\;\Varid{child1}\equiv \Conid{Boy}\mathrel{\vee}\Varid{gender}\;\Varid{child2}\equiv \Conid{Boy}){}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{return}\;[\mskip1.5mu \Varid{child1},\Varid{child2}\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{expect}\mathbin{::}(\Varid{a}\to \Conid{Rational})\to \Conid{Dist}\;\Varid{a}\to \Conid{Rational}{}\<[E]%
+\\
+\>[B]{}\Varid{expect}\;\Varid{p}\;\Varid{xs}\mathrel{=}\frac{\Varid{sum}\;[\mskip1.5mu \Varid{p}\;\Varid{x}\times\Varid{xp}\mid (\Varid{x},\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}\mskip1.5mu]}{\Varid{sum}\;[\mskip1.5mu \Varid{xp}\mid (\anonymous ,\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}\mskip1.5mu]}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
-  For this probabilistic language, we need to describe the semantics of
-  assignment ($\leftarrow$ in the example above).
+\end{frame}
+\begin{frame}
+  Theoretical Basis
+  
 \end{frame}
 \end{document}
 
