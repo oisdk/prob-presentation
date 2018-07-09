@@ -2,6 +2,7 @@
 \usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{forest}
+\usepackage{mathtools}
 % \setbeameroption{show notes}
 \usetheme{metropolis}
 
@@ -271,12 +272,17 @@
 \renewcommand{\Conid}[1]{\textcolor{OliveGreen}{\id{#1}}}
 \usepackage{listings}
 \usepackage{biblatex}
+\usepackage{multicol}
 \bibliography{../Probability.bib}
 \title{Probabilistic Functional Programming}
 \author{Donnacha Oisín Kidney}
 \begin{document}
 \frame{\titlepage}
-\frame{\tableofcontents}
+\begin{frame}
+  \begin{multicols}{2}
+    \tableofcontents
+  \end{multicols}
+\end{frame}
 \section{Modeling Probability}
 \begin{frame}
   How do we model stochastic and probabilistic processes in programming
@@ -583,18 +589,190 @@ def mr_smith():
 \ColumnHook
 \end{hscode}\resethooks
 \end{frame}
-\begin{frame}
-  \begin{forest}
-    [$1$
-        [$\frac{1}{2}$
-            [$\frac{1}{2}$ [{(True,True)}]]
-            [$\frac{1}{2}$ [{(True,False)}]]]
-        [$\frac{1}{2}$
-            [$\frac{1}{2}$ [{(False,True)}]]
-            [$\frac{1}{2}$ [{(False,False)}]]]]
-  \end{forest}
-  Theoretical Basis
+\subsection{Other Interpreters}
+\begin{frame}[allowframebreaks]
+        \frametitle{Alternative  Interpreters}
+  Once the semantics are described, different interpreters are easy to swap in.
+  Take Monty Hall, for example:
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{23}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{27}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{27E}{@{}l@{}}%
+\column{30}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{31}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{31E}{@{}l@{}}%
+\column{34}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{38}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{38E}{@{}l@{}}%
+\column{41}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{42}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{42E}{@{}l@{}}%
+\column{46}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{47}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{47E}{@{}l@{}}%
+\column{51}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[5]{}\textcolor{BlueViolet}{\textbf{data}}\;\Conid{Decision}\mathrel{=}\Conid{Decision}\;{}\<[31]%
+\>[31]{}\{\mskip1.5mu {}\<[31E]%
+\>[34]{}\Varid{stick}{}\<[42]%
+\>[42]{}\mathbin{::}{}\<[42E]%
+\>[46]{}\Conid{Bool}{}\<[E]%
+\\
+\>[31]{},{}\<[31E]%
+\>[34]{}\Varid{switch}{}\<[42]%
+\>[42]{}\mathbin{::}{}\<[42E]%
+\>[46]{}\Conid{Bool}\mskip1.5mu\}{}\<[E]%
+\\
+\>[5]{}\Varid{montyHall}\mathbin{::}\Conid{Dist}\;\Conid{Decision}{}\<[E]%
+\\
+\>[5]{}\Varid{montyHall}\mathrel{=}\textcolor{BlueViolet}{\textbf{do}}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{car}{}\<[23]%
+\>[23]{}\leftarrow \Varid{uniform}\;[\mskip1.5mu \mathrm{1}\mathinner{\ldotp\ldotp}\mathrm{3}\mskip1.5mu]{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{choice}_{\mathrm{1}}{}\<[23]%
+\>[23]{}\leftarrow \Varid{uniform}\;[\mskip1.5mu \mathrm{1}\mathinner{\ldotp\ldotp}\mathrm{3}\mskip1.5mu]{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\textcolor{BlueViolet}{\textbf{let}}\;\Varid{left}{}\<[23]%
+\>[23]{}\mathrel{=}[\mskip1.5mu \Varid{door}\mid \Varid{door}\leftarrow [\mskip1.5mu \mathrm{1}\mathinner{\ldotp\ldotp}\mathrm{3}\mskip1.5mu],\Varid{door}\not\equiv \Varid{choice}_{\mathrm{1}}\mskip1.5mu]{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\textcolor{BlueViolet}{\textbf{let}}\;\Varid{open}{}\<[23]%
+\>[23]{}\mathrel{=}\Varid{head}\;[\mskip1.5mu \Varid{door}\mid \Varid{door}\leftarrow \Varid{left},\Varid{door}\not\equiv \Varid{car}\mskip1.5mu]{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\textcolor{BlueViolet}{\textbf{let}}\;\Varid{choice}_{\mathrm{2}}{}\<[23]%
+\>[23]{}\mathrel{=}\Varid{head}\;[\mskip1.5mu \Varid{door}\mid \Varid{door}\leftarrow \Varid{left},\Varid{door}\not\equiv \Varid{open}\mskip1.5mu]{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{return}\;(\Conid{Decision}\;{}\<[27]%
+\>[27]{}\{\mskip1.5mu {}\<[27E]%
+\>[30]{}\Varid{stick}{}\<[38]%
+\>[38]{}\mathrel{=}{}\<[38E]%
+\>[41]{}\Varid{car}{}\<[47]%
+\>[47]{}\equiv {}\<[47E]%
+\>[51]{}\Varid{choice}_{\mathrm{1}}{}\<[E]%
+\\
+\>[27]{},{}\<[27E]%
+\>[30]{}\Varid{switch}{}\<[38]%
+\>[38]{}\mathrel{=}{}\<[38E]%
+\>[41]{}\Varid{car}{}\<[47]%
+\>[47]{}\equiv {}\<[47E]%
+\>[51]{}\Varid{choice}_{\mathrm{2}}\mskip1.5mu\}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
   
+  While we can interpret it in the normal way to solve the problem:
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{13}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{21}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{32}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{32E}{@{}l@{}}%
+\column{36}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[5]{}\Varid{probOf}\;{}\<[13]%
+\>[13]{}\Varid{stick}\;{}\<[21]%
+\>[21]{}\Varid{montyHall}{}\<[32]%
+\>[32]{}\equiv {}\<[32E]%
+\>[36]{}\frac{\mathrm{1}}{\mathrm{3}}{}\<[E]%
+\\
+\>[5]{}\Varid{probOf}\;{}\<[13]%
+\>[13]{}\Varid{switch}\;{}\<[21]%
+\>[21]{}\Varid{montyHall}{}\<[32]%
+\>[32]{}\equiv {}\<[32E]%
+\>[36]{}\frac{\mathrm{2}}{\mathrm{3}}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+  We could alternatively draw a diagram of the process:
+  \centering
+  \begin{forest}
+[$1$
+   [$\frac{1}{3}$
+      [$\frac{1}{3}$ [{10}]]
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{01}]]]
+   [$\frac{1}{3}$
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{10}]]
+      [$\frac{1}{3}$ [{01}]]]
+   [$\frac{1}{3}$
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{10}]]]]
+  \end{forest}
 \end{frame}
+\section{Theoretical Foundations}
+\subsection{Stochastic Lambda Calculus}
+\begin{frame}
+  \frametitle{Stochastic Lambda Calculus}
+  It is possible\footfullcite{ramsey_stochastic_2002} to give measure-theoretic
+  meanings to the operations described above.
+  \begin{equation}
+    \mathcal{M} \left\llbracket \textcolor{Sepia}{\mathit{return}}\: x \right\rrbracket(A) =
+      \begin{cases*}
+        1, & if $x \in A$ \\
+        0, & otherwise
+      \end{cases*}
+  \end{equation}
+    
+  \begin{equation}
+    \mathcal{M} \left\llbracket d \bind k \right\rrbracket (A) =
+    \int_X \mathcal{M} \left\llbracket k(x) \right\rrbracket (A) d \mathcal{M} \left\llbracket d \right\rrbracket (x)
+  \end{equation}
+  \note{return is the Dirac measure}
+\end{frame}
+\subsection{Giry Monad}
+\begin{frame}
+  \frametitle{The Giry Monad}
+  $\mathbf{Meas}$ is the category of measurable spaces, where the morphisms are
+  measurable maps. There is a functor $\mathbf{P}$ on $\mathbf{Meas}$, where for
+  some measurable space $x$, $\mathbf{P}(x)$ is the set of probability measures
+  on $x$\footfullcite{dold_categorical_1982}. The monad for $\mathbf{P}$ can be
+  defined with two natural transformations
+  \begin{gather}
+    \eta : A \rightarrow \mathbf{P}(A) \\
+    \mu : \mathbf{P}^2(A) \rightarrow \mathbf{P}(A)
+  \end{gather}
+  Their definitions are from above:
+  \begin{gather}
+    \eta = \textcolor{Sepia}{\mathit{return}} \\
+    \mu(\mathit{P}) = \mathit{P} \bind \mathit{id}
+  \end{gather}
+\end{frame}
+\begin{frame}
+  \frametitle{Implementation}
+  The implementation of the Giry monad is quite direct:
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[5]{}\textcolor{BlueViolet}{\textbf{newtype}}\;\Conid{Measure}\;\Varid{a}\mathrel{=}\Conid{Measure}\;((\Varid{a}\to \mathbb{R})\to \mathbb{R}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\end{frame}
+\section{Other Applications}
+\subsection{Differential Privacy}
+\begin{frame}
+  \frametitle{Differential Privacy}
+  It has been shown\footfullcite{reed_distance_2010} that the semantics of the
+  probability monad suitable encapsulate \emph{differential privacy}.
+\end{frame}
+\begin{frame}
+  \frametitle{PINQ}
+  LINQ\footfullcite{box_linq_2007} is an API which provides a monadic syntax for
+  performing queries (sql, etc.)
+
+  PINQ\footfullcite{mcsherry_privacy_2010} extends this to provide
+  \emph{differentially private} queries.
+\end{frame}
+\section{Conclusion}
 \end{document}
 

@@ -2,6 +2,7 @@
 \usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{forest}
+\usepackage{mathtools}
 % \setbeameroption{show notes}
 \usetheme{metropolis}
 
@@ -10,18 +11,24 @@
 %subst keyword a = "\textcolor{BlueViolet}{\textbf{" a "}}"
 %format frac (a) (b) = "\frac{" a "}{" b "}"
 %format * = "\times"
+%format Double = "\mathbb{R}"
 
 \newcommand{\id}[1]{\textsf{\textsl{#1}}}
 \renewcommand{\Varid}[1]{\textcolor{Sepia}{\id{#1}}}
 \renewcommand{\Conid}[1]{\textcolor{OliveGreen}{\id{#1}}}
 \usepackage{listings}
 \usepackage{biblatex}
+\usepackage{multicol}
 \bibliography{../Probability.bib}
 \title{Probabilistic Functional Programming}
 \author{Donnacha Oisín Kidney}
 \begin{document}
 \frame{\titlepage}
-\frame{\tableofcontents}
+\begin{frame}
+  \begin{multicols}{2}
+    \tableofcontents
+  \end{multicols}
+\end{frame}
 \section{Modeling Probability}
 \begin{frame}
   How do we model stochastic and probabilistic processes in programming
@@ -245,18 +252,112 @@ def mr_smith():
     probOf (all ((==)  Boy   .  gender))  mrSmith  ==  frac 1 3
   \end{code} 
 \end{frame}
-\begin{frame}
+\subsection{Other Interpreters}
+\begin{frame}[allowframebreaks]
+  %{
+  %format choice_1
+  %format choice_2
+  \frametitle{Alternative  Interpreters}
+  Once the semantics are described, different interpreters are easy to swap in.
+  Take Monty Hall, for example:
+  \begin{code}
+    data Decision = Decision  {  stick   ::  Bool
+                              ,  switch  ::  Bool }
+    montyHall :: Dist Decision
+    montyHall = do
+        car           <- uniform [1..3]
+        choice_1      <- uniform [1..3]
+        let left      = [ door | door <- [1..3], door /= choice_1 ]
+        let open      = head [ door | door <- left, door /= car ]
+        let choice_2  = head [ door | door <- left, door /= open ]
+        return (Decision  {  stick   =  car   ==  choice_1
+                          ,  switch  =  car   ==  choice_2 })
+  \end{code}
+  %}
+
+  While we can interpret it in the normal way to solve the problem:
+  \begin{code}
+    probOf  stick   montyHall  ==  frac 1 3
+    probOf  switch  montyHall  ==  frac 2 3
+  \end{code}
+  We could alternatively draw a diagram of the process:
+  \centering
   \begin{forest}
-    [$1$
-        [$\frac{1}{2}$
-            [$\frac{1}{2}$ [{(True,True)}]]
-            [$\frac{1}{2}$ [{(True,False)}]]]
-        [$\frac{1}{2}$
-            [$\frac{1}{2}$ [{(False,True)}]]
-            [$\frac{1}{2}$ [{(False,False)}]]]]
+[$1$
+   [$\frac{1}{3}$
+      [$\frac{1}{3}$ [{10}]]
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{01}]]]
+   [$\frac{1}{3}$
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{10}]]
+      [$\frac{1}{3}$ [{01}]]]
+   [$\frac{1}{3}$
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{01}]]
+      [$\frac{1}{3}$ [{10}]]]]
   \end{forest}
-  Theoretical Basis
-  
 \end{frame}
+\section{Theoretical Foundations}
+\subsection{Stochastic Lambda Calculus}
+\begin{frame}
+  \frametitle{Stochastic Lambda Calculus}
+  It is possible\footfullcite{ramsey_stochastic_2002} to give measure-theoretic
+  meanings to the operations described above.
+  \begin{equation}
+    \mathcal{M} \left\llbracket \textcolor{Sepia}{\mathit{return}}\: x \right\rrbracket(A) =
+      \begin{cases*}
+        1, & if $x \in A$ \\
+        0, & otherwise
+      \end{cases*}
+  \end{equation}
+    
+  \begin{equation}
+    \mathcal{M} \left\llbracket d \bind k \right\rrbracket (A) =
+    \int_X \mathcal{M} \left\llbracket k(x) \right\rrbracket (A) d \mathcal{M} \left\llbracket d \right\rrbracket (x)
+  \end{equation}
+  \note{return is the Dirac measure}
+\end{frame}
+\subsection{Giry Monad}
+\begin{frame}
+  \frametitle{The Giry Monad}
+  $\mathbf{Meas}$ is the category of measurable spaces, where the morphisms are
+  measurable maps. There is a functor $\mathbf{P}$ on $\mathbf{Meas}$, where for
+  some measurable space $x$, $\mathbf{P}(x)$ is the set of probability measures
+  on $x$\footfullcite{dold_categorical_1982}. The monad for $\mathbf{P}$ can be
+  defined with two natural transformations
+  \begin{gather}
+    \eta : A \rightarrow \mathbf{P}(A) \\
+    \mu : \mathbf{P}^2(A) \rightarrow \mathbf{P}(A)
+  \end{gather}
+  Their definitions are from above:
+  \begin{gather}
+    \eta = \textcolor{Sepia}{\mathit{return}} \\
+    \mu(\mathit{P}) = \mathit{P} \bind \mathit{id}
+  \end{gather}
+\end{frame}
+\begin{frame}
+  \frametitle{Implementation}
+  The implementation of the Giry monad is quite direct:
+  \begin{code}
+    newtype Measure a = Measure ((a -> Double) -> Double)
+  \end{code}
+\end{frame}
+\section{Other Applications}
+\subsection{Differential Privacy}
+\begin{frame}
+  \frametitle{Differential Privacy}
+  It has been shown\footfullcite{reed_distance_2010} that the semantics of the
+  probability monad suitable encapsulate \emph{differential privacy}.
+\end{frame}
+\begin{frame}
+  \frametitle{PINQ}
+  LINQ\footfullcite{box_linq_2007} is an API which provides a monadic syntax for
+  performing queries (sql, etc.)
+
+  PINQ\footfullcite{mcsherry_privacy_2010} extends this to provide
+  \emph{differentially private} queries.
+\end{frame}
+\section{Conclusion}
 \end{document}
 

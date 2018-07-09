@@ -2,6 +2,7 @@
 {-# LANGUAGE DeriveFoldable #-}
 {-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase #-}
 
 module Control.Monad.Prob.Weight where
     
@@ -13,19 +14,25 @@ import Control.Monad.Prob.Class
 import Data.Heap
 import qualified Data.Tree.Binary.Internal as Tree
 import Text.PrettyPrint hiding ((<>))
+import Data.List
+import Data.Bool
+import Control.Monad
 
-type Dist = FreeT [] ((,) (Product Rational))
+type Dist = FreeT ((,) Rational) []
 
 instance Distribution Dist where
-    distrib p xs = FreeT (Product 1, Free (foldr f [] xs))
+    distrib p xs = FreeT (foldr f [] xs)
       where
         f x xs = case p x of
-            (y, yp) -> FreeT (Product yp, Pure y) : xs
+            (y, yp) -> Free (yp, pure y) : xs
             
 instance Expect Dist where
-    expect p xs = getProduct (fst (iterT f (xs >>= (\x -> FreeT (Product (p x), Pure ())))))
+    expect p (FreeT xs) = sum (map f xs) / sum (map g xs)
       where
-        f xs = ((Product . sum . map (getProduct . fst)) xs, ())
+        f (Pure x) = p x
+        f (Free (xp, xs)) = expect p xs * xp
+        g (Pure x) = 1
+        g (Free (xp, xs)) = xp
 
 coin :: Dist Bool
 coin = uniform [False,True]
@@ -48,11 +55,39 @@ pairadice = do
 math :: Doc -> Doc
 math d = char '$' <> d <> char '$'
 
-
 docRational :: Rational -> Doc
 docRational r | denominator r == 1 = math $ integer (numerator r)
 docRational r = math $ text "\\frac" <> braces (integer (numerator r)) <> braces (integer (denominator r))
 
-showTree :: Show a => Dist a -> Doc
-showTree (FreeT (Product p, Pure x)) = brackets (docRational p <+> brackets (braces $ text (show x)))
-showTree (FreeT (Product p, Free xs)) = brackets (hang (docRational p) 2 (vcat (map showTree xs)))
+showTree :: (a -> Doc) -> Dist a -> Doc
+showTree s tr@(FreeT xs) = showTree' (g xs) tr
+  where
+    showTree' p (FreeT xs) = brackets (hang (docRational p) 2 (vcat (map f xs)))
+      where
+        f (Pure x) = brackets (braces (s x))
+        f (Free (x, xs)) = showTree' x xs
+    g = sum . map (\case
+        Pure _ -> 1
+        Free (x,_) -> x) 
+        
+data Decision = Decision
+  { switch :: Bool
+  , stick  :: Bool }
+   
+montyHall :: Dist Decision
+montyHall = do
+    car <- uniform [1..3]
+    firstChoice <- uniform [1..3]
+    let revealed  = head [ door | door <- [1..3], door /= firstChoice, door /= car ]
+    let newChoice = head [ door | door <- [1..3], door /= firstChoice, door /= revealed ]
+    return (Decision { switch = newChoice == car
+                     , stick  = firstChoice == car })
+     
+docDecision (Decision sw st) = char (bool '0' '1' st) <> char (bool '0' '1' sw)
+
+
+
+
+
+
+

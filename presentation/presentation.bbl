@@ -19,6 +19,54 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{box_linq_2007}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=9d1b860754efe78c391f27394b4a065a}{%
+           family={Box},
+           familyi={B\bibinitperiod},
+           given={Don},
+           giveni={D\bibinitperiod}}}%
+        {{hash=bb89b7cdaca604acd67f90b17383b583}{%
+           family={Hejlsberg},
+           familyi={H\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Microsoft}%
+      }
+      \strng{namehash}{141fb44e3344fddacc227c3e9d5f38ed}
+      \strng{fullhash}{141fb44e3344fddacc227c3e9d5f38ed}
+      \strng{bibnamehash}{141fb44e3344fddacc227c3e9d5f38ed}
+      \strng{authorbibnamehash}{141fb44e3344fddacc227c3e9d5f38ed}
+      \strng{authornamehash}{141fb44e3344fddacc227c3e9d5f38ed}
+      \strng{authorfullhash}{141fb44e3344fddacc227c3e9d5f38ed}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{General-purpose query facilities added to the .NET Framework apply to all sources of information, not just relational or XML data. This facility is called .NET Language-Integrated Query (LINQ)}
+      \field{month}{2}
+      \field{shorttitle}{{{LINQ}}}
+      \field{title}{{{LINQ}}: .{{NET Language Integrated Query}}}
+      \field{urlday}{9}
+      \field{urlmonth}{7}
+      \field{urlyear}{2018}
+      \field{year}{2007}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/68RJIN9I/bb308959.html
+      \endverb
+      \verb{urlraw}
+      \verb https://msdn.microsoft.com/en-us/library/bb308959.aspx
+      \endverb
+      \verb{url}
+      \verb https://msdn.microsoft.com/en-us/library/bb308959.aspx
+      \endverb
+    \endentry
     \entry{erwig_functional_2006}{article}{}
       \name{author}{2}{}{%
         {{hash=92e5385c41432644fcded54d78d51b7d}{%
@@ -69,6 +117,108 @@
       \verb http://web.engr.oregonstate.edu/~erwig/papers/abstracts.html%5C#JFP06a
       \endverb
     \endentry
+    \entry{dold_categorical_1982}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=4b2ee17af47c1a78a537cfb0b6f956af}{%
+           family={Giry},
+           familyi={G\bibinitperiod},
+           given={Michèle},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=fee234589c44891816dbd11ab756373f}{%
+           family={Dold},
+           familyi={D\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=704c5d5b8ae05785eb1c7f3210b745ec}{%
+           family={Eckmann},
+           familyi={E\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=a23b616df022cdeaaddcb32e62a468cc}{%
+           family={Banaschewski},
+           familyi={B\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{4b2ee17af47c1a78a537cfb0b6f956af}
+      \strng{fullhash}{4b2ee17af47c1a78a537cfb0b6f956af}
+      \strng{bibnamehash}{4b2ee17af47c1a78a537cfb0b6f956af}
+      \strng{authorbibnamehash}{4b2ee17af47c1a78a537cfb0b6f956af}
+      \strng{authornamehash}{4b2ee17af47c1a78a537cfb0b6f956af}
+      \strng{authorfullhash}{4b2ee17af47c1a78a537cfb0b6f956af}
+      \strng{editorbibnamehash}{a6cbafddf3935b75070c381560d9ec23}
+      \strng{editornamehash}{a6cbafddf3935b75070c381560d9ec23}
+      \strng{editorfullhash}{a6cbafddf3935b75070c381560d9ec23}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Categorical {{Aspects}} of {{Topology}} and {{Analysis}}}
+      \field{isbn}{978-3-540-11211-2 978-3-540-39041-1}
+      \field{title}{A Categorical Approach to Probability Theory}
+      \field{urlday}{3}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{volume}{915}
+      \field{year}{1982}
+      \field{urldateera}{ce}
+      \field{pages}{68\bibrangedash 85}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/BFb0092872
+      \endverb
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/N7WJCNMA/giry1982.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/BFb0092872
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/BFb0092872
+      \endverb
+      \keyw{Category Theory,Probability}
+    \endentry
+    \entry{mcsherry_privacy_2010}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a0e6c99aabdc2587f248892c8bb23f70}{%
+           family={McSherry},
+           familyi={M\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0e6c99aabdc2587f248892c8bb23f70}
+      \strng{fullhash}{a0e6c99aabdc2587f248892c8bb23f70}
+      \strng{bibnamehash}{a0e6c99aabdc2587f248892c8bb23f70}
+      \strng{authorbibnamehash}{a0e6c99aabdc2587f248892c8bb23f70}
+      \strng{authornamehash}{a0e6c99aabdc2587f248892c8bb23f70}
+      \strng{authorfullhash}{a0e6c99aabdc2587f248892c8bb23f70}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Privacy Integrated Queries (PINQ) is an extensible data analysis platform designed to provide unconditional privacy guarantees for the records of the underlying data sets. PINQ provides analysts with access to records through an SQL-like declarative language (LINQ) amidst otherwise arbitrary C\# code. At the same time, the design of PINQ's analysis language and its careful implementation provide formal guarantees of differential privacy for any and all uses of the platform. PINQ's guarantees require no trust placed in the expertise or diligence of the analysts, broadening the scope for design and deployment of privacy-preserving data analyses, especially by privacy nonexperts.}
+      \field{journaltitle}{Communications of the ACM}
+      \field{month}{9}
+      \field{title}{Privacy {{Integrated Queries}}}
+      \field{year}{2010}
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/MN86NA3N/pinq-CACM.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.microsoft.com/en-us/research/publication/privacy-integrated-queries-2/
+      \endverb
+      \verb{url}
+      \verb https://www.microsoft.com/en-us/research/publication/privacy-integrated-queries-2/
+      \endverb
+    \endentry
     \entry{munroe_xkcd_2007}{misc}{}
       \name{author}{1}{}{%
         {{hash=40f308159c00a2e5add1aac4b82befa6}{%
@@ -107,6 +257,99 @@
       \endverb
       \verb{url}
       \verb https://xkcd.com/221/
+      \endverb
+    \endentry
+    \entry{ramsey_stochastic_2002}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=44f3f223dccc5e69e5b7fb8693751b88}{%
+           family={Ramsey},
+           familyi={R\bibinitperiod},
+           given={Norman},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f52c3fe2c7ec3cf35063fb1b49d5fa3a}{%
+           family={Pfeffer},
+           familyi={P\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{77493bac3eb47c2bfaa5fff8a3141357}
+      \strng{fullhash}{77493bac3eb47c2bfaa5fff8a3141357}
+      \strng{bibnamehash}{77493bac3eb47c2bfaa5fff8a3141357}
+      \strng{authorbibnamehash}{77493bac3eb47c2bfaa5fff8a3141357}
+      \strng{authornamehash}{77493bac3eb47c2bfaa5fff8a3141357}
+      \strng{authorfullhash}{77493bac3eb47c2bfaa5fff8a3141357}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{29th {{ACM SIGPLAN}}-{{SIGACT}} Symposium on {{Principles}} of Programming Languages}
+      \field{title}{Stochastic {{Lambda Calculus}} and {{Monads}} of {{Probability Distributions}}}
+      \field{urlday}{29}
+      \field{urlmonth}{9}
+      \field{urlyear}{2016}
+      \field{volume}{37}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{154\bibrangedash 165}
+      \range{pages}{12}
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/5MFN47A4/Ramsey and Pfeffer - Stochastic Lambda Calculus and Monads of Probabili.pdf;/Users/doisinkidney/Zotero/storage/6QFNDPDU/pmonad.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.cs.tufts.edu/~nr/cs257/archive/norman-ramsey/pmonad.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.cs.tufts.edu/~nr/cs257/archive/norman-ramsey/pmonad.pdf
+      \endverb
+    \endentry
+    \entry{reed_distance_2010}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=50387e02251de195f7149b890eb7249d}{%
+           family={Reed},
+           familyi={R\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8eb1c0a7778a466aa612ab3259d489ec}{%
+           family={Pierce},
+           familyi={P\bibinitperiod},
+           given={Benjamin\bibnamedelima C.},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{5c0cedfd4255fb89b5d70e9dfaa210c6}
+      \strng{fullhash}{5c0cedfd4255fb89b5d70e9dfaa210c6}
+      \strng{bibnamehash}{5c0cedfd4255fb89b5d70e9dfaa210c6}
+      \strng{authorbibnamehash}{5c0cedfd4255fb89b5d70e9dfaa210c6}
+      \strng{authornamehash}{5c0cedfd4255fb89b5d70e9dfaa210c6}
+      \strng{authorfullhash}{5c0cedfd4255fb89b5d70e9dfaa210c6}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{booktitle}{{{ACM Sigplan Notices}}}
+      \field{shorttitle}{Distance Makes the Types Grow Stronger}
+      \field{title}{Distance Makes the Types Grow Stronger: A Calculus for Differential Privacy}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2017}
+      \field{volume}{45}
+      \field{year}{2010}
+      \field{urldateera}{ce}
+      \field{pages}{157\bibrangedash 168}
+      \range{pages}{12}
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/FU78V8H8/Reed and Pierce - 2010 - Distance makes the types grow stronger a calculus.pdf;/Users/doisinkidney/Zotero/storage/M66WU4PF/citation.html
+      \endverb
+      \verb{urlraw}
+      \verb http://dl.acm.org/citation.cfm?id=1863568
+      \endverb
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=1863568
       \endverb
     \endentry
   \enddatalist
