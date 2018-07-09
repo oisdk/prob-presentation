@@ -46,7 +46,7 @@ uniform [] = weighted []
 uniform (x ∷ xs) = weighted (List.map (flip _,_ p) (x ∷ xs))
   where
   p : ℙ
-  p = 1 ÷ (suc (List.length xs))
+  p = 1 ?÷ (suc (List.length xs))
 
 open import Data.Fin as Fin using (Fin)
 
@@ -64,9 +64,10 @@ module Die where
   pairadice = do
     x ← die
     y ← die
-    return (Fin.toℕ x ℕ.+ Fin.toℕ y)
+    return (suc (Fin.toℕ x) ℕ.+ suc (Fin.toℕ y))
 
 open import Data.String using (String)
 open import Relation.Nullary.Decidable using (⌊_⌋)
+
 example : String
 example = show (probOf (λ x → ⌊ x ℕ.≟ 7 ⌋) Die.pairadice)

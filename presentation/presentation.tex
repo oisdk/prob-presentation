@@ -1,6 +1,7 @@
 \documentclass[usenames,dvipsnames]{beamer}
 \usepackage{xcolor}
 \usepackage{amsmath}
+\usepackage{forest}
 % \setbeameroption{show notes}
 \usetheme{metropolis}
 
@@ -309,7 +310,7 @@ from random import randrange, choice
 
 class Child:
     def __init__(self):
-        self.gender = choice(("boy", "girl"))
+        self.gender = choice(["boy", "girl"])
         self.age = randrange(18)
   \end{lstlisting}
   \begin{lstlisting}[language=Python]
@@ -457,8 +458,9 @@ def mr_smith():
   This is encapsulated by the ``monadic bind'':
   \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}(\bind )\mathbin{::}\Conid{Dist}\;\Varid{a}\to (\Varid{a}\to \Conid{Dist}\;\Varid{b})\to \Conid{Dist}\;\Varid{b}{}\<[E]%
+\>[5]{}(\bind )\mathbin{::}\Conid{Dist}\;\Varid{a}\to (\Varid{a}\to \Conid{Dist}\;\Varid{b})\to \Conid{Dist}\;\Varid{b}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
   When we assign to a variable in a probabilistic computation, everything that
@@ -467,19 +469,20 @@ def mr_smith():
   is encapsulated by multiplication:
   \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{18}{@{}>{\hspre}c<{\hspost}@{}}%
-\column{18E}{@{}l@{}}%
-\column{21}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{22}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{22E}{@{}l@{}}%
+\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{xs}\bind \Varid{f}\mathrel{=}\Conid{Dist}\;{}\<[18]%
-\>[18]{}[\mskip1.5mu {}\<[18E]%
-\>[21]{}(\Varid{y},\Varid{xp}\times\Varid{yp}){}\<[E]%
+\>[5]{}\Varid{xs}\bind \Varid{f}\mathrel{=}\Conid{Dist}\;{}\<[22]%
+\>[22]{}[\mskip1.5mu {}\<[22E]%
+\>[25]{}(\Varid{y},\Varid{xp}\times\Varid{yp}){}\<[E]%
 \\
-\>[18]{}\mid {}\<[18E]%
-\>[21]{}(\Varid{x},\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}{}\<[E]%
+\>[22]{}\mid {}\<[22E]%
+\>[25]{}(\Varid{x},\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}{}\<[E]%
 \\
-\>[18]{},{}\<[18E]%
-\>[21]{}(\Varid{y},\Varid{yp})\leftarrow \Varid{runDist}\;(\Varid{f}\;\Varid{x})\mskip1.5mu]{}\<[E]%
+\>[22]{},{}\<[22E]%
+\>[25]{}(\Varid{y},\Varid{yp})\leftarrow \Varid{runDist}\;(\Varid{f}\;\Varid{x})\mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \end{frame}
@@ -487,17 +490,18 @@ def mr_smith():
   \frametitle{Assertion}
   Assertion is a kind of conditioning: given a statement about an event, it
   either occurs or it doesn't.
-\begin{hscode}\SaveRestoreHook
+  \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{14}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{18}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{guard}\mathbin{::}\Conid{Bool}\to \Conid{Dist}\;(){}\<[E]%
+\>[5]{}\Varid{guard}\mathbin{::}\Conid{Bool}\to \Conid{Dist}\;(){}\<[E]%
 \\
-\>[B]{}\Varid{guard}\;\Conid{True}{}\<[14]%
-\>[14]{}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu ((),\mathrm{1})\mskip1.5mu]{}\<[E]%
+\>[5]{}\Varid{guard}\;\Conid{True}{}\<[18]%
+\>[18]{}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu ((),\mathrm{1})\mskip1.5mu]{}\<[E]%
 \\
-\>[B]{}\Varid{guard}\;\Conid{False}{}\<[14]%
-\>[14]{}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\>[5]{}\Varid{guard}\;\Conid{False}{}\<[18]%
+\>[18]{}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \end{frame}
@@ -505,13 +509,13 @@ def mr_smith():
   \frametitle{Return}
   Return is the ``unit'' value for a distribution; the certain event, the
   unconditional distribution.
-\begin{hscode}\SaveRestoreHook
+  \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[3]{}\Varid{return}\mathbin{::}\Varid{a}\to \Conid{Dist}\;\Varid{a}{}\<[E]%
+\>[5]{}\Varid{return}\mathbin{::}\Varid{a}\to \Conid{Dist}\;\Varid{a}{}\<[E]%
 \\
-\>[3]{}\Varid{return}\;\Varid{x}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\Varid{x},\mathrm{1})\mskip1.5mu]{}\<[E]%
+\>[5]{}\Varid{return}\;\Varid{x}\mathrel{=}\Conid{Dist}\;[\mskip1.5mu (\Varid{x},\mathrm{1})\mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \end{frame}
@@ -519,31 +523,76 @@ def mr_smith():
   \frametitle{Putting it all Together}
   \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{7}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{mrSmith}\mathbin{::}\Conid{Dist}\;[\mskip1.5mu \Conid{Child}\mskip1.5mu]{}\<[E]%
+\>[5]{}\Varid{mrSmith}\mathbin{::}\Conid{Dist}\;[\mskip1.5mu \Conid{Child}\mskip1.5mu]{}\<[E]%
 \\
-\>[B]{}\Varid{mrSmith}\mathrel{=}\textcolor{BlueViolet}{\textbf{do}}{}\<[E]%
+\>[5]{}\Varid{mrSmith}\mathrel{=}\textcolor{BlueViolet}{\textbf{do}}{}\<[E]%
 \\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{child1}\leftarrow \Varid{child}{}\<[E]%
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{child1}\leftarrow \Varid{child}{}\<[E]%
 \\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{child2}\leftarrow \Varid{child}{}\<[E]%
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{child2}\leftarrow \Varid{child}{}\<[E]%
 \\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{guard}\;(\Varid{gender}\;\Varid{child1}\equiv \Conid{Boy}\mathrel{\vee}\Varid{gender}\;\Varid{child2}\equiv \Conid{Boy}){}\<[E]%
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{guard}\;(\Varid{gender}\;\Varid{child1}\equiv \Conid{Boy}\mathrel{\vee}\Varid{gender}\;\Varid{child2}\equiv \Conid{Boy}){}\<[E]%
 \\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{return}\;[\mskip1.5mu \Varid{child1},\Varid{child2}\mskip1.5mu]{}\<[E]%
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{return}\;[\mskip1.5mu \Varid{child1},\Varid{child2}\mskip1.5mu]{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{expect}\mathbin{::}(\Varid{a}\to \Conid{Rational})\to \Conid{Dist}\;\Varid{a}\to \Conid{Rational}{}\<[E]%
+\>[5]{}\Varid{expect}\mathbin{::}(\Varid{a}\to \Conid{Rational})\to \Conid{Dist}\;\Varid{a}\to \Conid{Rational}{}\<[E]%
 \\
-\>[B]{}\Varid{expect}\;\Varid{p}\;\Varid{xs}\mathrel{=}\frac{\Varid{sum}\;[\mskip1.5mu \Varid{p}\;\Varid{x}\times\Varid{xp}\mid (\Varid{x},\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}\mskip1.5mu]}{\Varid{sum}\;[\mskip1.5mu \Varid{xp}\mid (\anonymous ,\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}\mskip1.5mu]}{}\<[E]%
+\>[5]{}\Varid{expect}\;\Varid{p}\;\Varid{xs}\mathrel{=}\frac{\Varid{sum}\;[\mskip1.5mu \Varid{p}\;\Varid{x}\times\Varid{xp}\mid (\Varid{x},\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}\mskip1.5mu]}{\Varid{sum}\;[\mskip1.5mu \Varid{xp}\mid (\anonymous ,\Varid{xp})\leftarrow \Varid{runDist}\;\Varid{xs}\mskip1.5mu]}{}\<[E]%
+\\[\blanklineskip]%
+\>[5]{}\Varid{probOf}\mathbin{::}(\Varid{a}\to \Conid{Bool})\to \Conid{Dist}\;\Varid{a}\to \Conid{Rational}{}\<[E]%
+\\
+\>[5]{}\Varid{probOf}\;\Varid{p}\mathrel{=}\Varid{expect}\;(\lambda \Varid{x}\to \textcolor{BlueViolet}{\textbf{if}}\;\Varid{p}\;\Varid{x}\;\textcolor{BlueViolet}{\textbf{then}}\;\mathrm{1}\;\textcolor{BlueViolet}{\textbf{else}}\;\mathrm{0}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \end{frame}
 \begin{frame}
+  \begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{24}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{30}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{30E}{@{}l@{}}%
+\column{33}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{43}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{52}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{52E}{@{}l@{}}%
+\column{56}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[5]{}\Varid{probOf}\;(\Varid{all}\;((\equiv )\;{}\<[24]%
+\>[24]{}\Conid{Girl}{}\<[30]%
+\>[30]{}\mathbin{\circ}{}\<[30E]%
+\>[33]{}\Varid{gender}))\;{}\<[43]%
+\>[43]{}\Varid{mrJones}{}\<[52]%
+\>[52]{}\equiv {}\<[52E]%
+\>[56]{}\frac{\mathrm{1}}{\mathrm{2}}{}\<[E]%
+\\
+\>[5]{}\Varid{probOf}\;(\Varid{all}\;((\equiv )\;{}\<[24]%
+\>[24]{}\Conid{Boy}{}\<[30]%
+\>[30]{}\mathbin{\circ}{}\<[30E]%
+\>[33]{}\Varid{gender}))\;{}\<[43]%
+\>[43]{}\Varid{mrSmith}{}\<[52]%
+\>[52]{}\equiv {}\<[52E]%
+\>[56]{}\frac{\mathrm{1}}{\mathrm{3}}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\end{frame}
+\begin{frame}
+  \begin{forest}
+    [$1$
+        [$\frac{1}{2}$
+            [$\frac{1}{2}$ [{(True,True)}]]
+            [$\frac{1}{2}$ [{(True,False)}]]]
+        [$\frac{1}{2}$
+            [$\frac{1}{2}$ [{(False,True)}]]
+            [$\frac{1}{2}$ [{(False,False)}]]]]
+  \end{forest}
   Theoretical Basis
   
 \end{frame}

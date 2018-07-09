@@ -1,6 +1,7 @@
 \documentclass[usenames,dvipsnames]{beamer}
 \usepackage{xcolor}
 \usepackage{amsmath}
+\usepackage{forest}
 % \setbeameroption{show notes}
 \usetheme{metropolis}
 
@@ -54,7 +55,7 @@ from random import randrange, choice
 
 class Child:
     def __init__(self):
-        self.gender = choice(("boy", "girl"))
+        self.gender = choice(["boy", "girl"])
         self.age = randrange(18)
   \end{lstlisting}
   \begin{lstlisting}[language=Python]
@@ -190,53 +191,70 @@ def mr_smith():
   \frametitle{Assignment}
   This is encapsulated by the ``monadic bind'':
   \begin{code}
-(>>=) :: Dist a -> (a -> Dist b) -> Dist b
+    (>>=) :: Dist a -> (a -> Dist b) -> Dist b
   \end{code}
   When we assign to a variable in a probabilistic computation, everything that
   comes later is conditional on the result of that assignment. We are therefore
   looking for the probability of the continuation given the left-hand-side; this
   is encapsulated by multiplication:
   \begin{code}
-xs >>= f = Dist  [  (y, xp * yp)
-                 |  (x, xp) <- runDist xs
-                 ,  (y, yp) <- runDist (f x) ]
+    xs >>= f = Dist  [  (y, xp * yp)
+                     |  (x, xp) <- runDist xs
+                     ,  (y, yp) <- runDist (f x) ]
   \end{code}
 \end{frame}
 \begin{frame}
   \frametitle{Assertion}
   Assertion is a kind of conditioning: given a statement about an event, it
   either occurs or it doesn't.
-\begin{code}
-guard :: Bool -> Dist ()
-guard True   = Dist [((), 1)]
-guard False  = Dist []
-\end{code}
+  \begin{code}
+    guard :: Bool -> Dist ()
+    guard True   = Dist [((), 1)]
+    guard False  = Dist []
+  \end{code}
 \end{frame}
 \begin{frame}
   \frametitle{Return}
   Return is the ``unit'' value for a distribution; the certain event, the
   unconditional distribution.
-\begin{code}
-  return :: a -> Dist a
-  return x = Dist [(x, 1)]
-\end{code}
+  \begin{code}
+    return :: a -> Dist a
+    return x = Dist [(x, 1)]
+  \end{code}
 \end{frame}
 \begin{frame}
   \frametitle{Putting it all Together}
   \begin{code}
-mrSmith :: Dist [Child]
-mrSmith = do
-  child1 <- child
-  child2 <- child
-  guard (gender child1 == Boy || gender child2 == Boy)
-  return [child1, child2]
+    mrSmith :: Dist [Child]
+    mrSmith = do
+      child1 <- child
+      child2 <- child
+      guard (gender child1 == Boy || gender child2 == Boy)
+      return [child1, child2]
 
-  
-expect :: (a -> Rational) -> Dist a -> Rational
-expect p xs = frac (sum [ p x * xp | (x,xp) <- runDist xs ]) (sum [ xp | (_,xp) <- runDist xs])
+    expect :: (a -> Rational) -> Dist a -> Rational
+    expect p xs = frac (sum [ p x * xp | (x,xp) <- runDist xs ]) (sum [ xp | (_,xp) <- runDist xs])
+
+    probOf :: (a -> Bool) -> Dist a -> Rational
+    probOf p = expect (\x -> if p x then 1 else 0)
   \end{code} 
 \end{frame}
 \begin{frame}
+  \begin{code}
+    probOf (all ((==)  Girl  .  gender))  mrJones  ==  frac 1 2
+    probOf (all ((==)  Boy   .  gender))  mrSmith  ==  frac 1 3
+  \end{code} 
+\end{frame}
+\begin{frame}
+  \begin{forest}
+    [$1$
+        [$\frac{1}{2}$
+            [$\frac{1}{2}$ [{(True,True)}]]
+            [$\frac{1}{2}$ [{(True,False)}]]]
+        [$\frac{1}{2}$
+            [$\frac{1}{2}$ [{(False,True)}]]
+            [$\frac{1}{2}$ [{(False,False)}]]]]
+  \end{forest}
   Theoretical Basis
   
 \end{frame}

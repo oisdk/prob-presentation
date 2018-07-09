@@ -114,8 +114,12 @@
 \headcommand {\slideentry {2}{1}{8}{24/24}{The Erwig And Kollmansberger Approach}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {24}{24}}
-\headcommand {\beamer@partpages {1}{24}}
-\headcommand {\beamer@subsectionpages {17}{24}}
-\headcommand {\beamer@sectionpages {15}{24}}
-\headcommand {\beamer@documentpages {24}}
-\headcommand {\gdef \inserttotalframenumber {20}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{1}{9}{25/25}{The Erwig And Kollmansberger Approach}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\beamer@partpages {1}{25}}
+\headcommand {\beamer@subsectionpages {17}{25}}
+\headcommand {\beamer@sectionpages {15}{25}}
+\headcommand {\beamer@documentpages {25}}
+\headcommand {\gdef \inserttotalframenumber {21}}

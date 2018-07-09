@@ -1,7 +1,0 @@
--- Haskell Playground 1.0
-
-probOf (all ((==) Girl . gender)) mrJones
-
-
-
---probOf (1==) (uniform [1..6])
