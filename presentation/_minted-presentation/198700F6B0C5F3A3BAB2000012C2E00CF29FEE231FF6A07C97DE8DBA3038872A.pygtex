@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n+nf}{getRandomNumber}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{c+c1}{// chosen by fair dice roll.}
+            \PYG{c+c1}{// guaranteed to be random.}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

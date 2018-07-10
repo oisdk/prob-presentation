@@ -10,18 +10,19 @@ x-last-ide-version: HfM1.6.0
 executable probabilitypresentation
     main-is: Main.hs
     build-depends:
-        pretty -any,
-        binary-tree -any,
+        comonad -any,
+        mtl -any,
         base -any,
         lens -any,
         free -any,
-        linear -any,
         containers -any
     default-language: Haskell2010
     other-modules:
+        Control.Monad.Weight.Free
+        Control.Monad.Weight.List
+        Control.Monad.Prob.Free
+        Control.Monad.Prob.Cofree
+        Control.Monad.Prob.Giry
         Control.Monad.Prob.Class
-        Control.Monad.Prob.Weight
-        Control.Monad.Prob.Choice
-        Control.Monad.Prob.List
         Data.Heap
 

@@ -1,7 +1,0 @@
--- Haskell Playground 1.0
---probOf ((6==)  . uncurry (+)) pairadice
-
-print (showTree docDecision montyHall)
---
---
-probOf stick montyHall

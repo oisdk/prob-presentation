@@ -15,7 +15,6 @@ instance Foldable Fold where
     foldr f b (Fold xs) = xs f b
     {-# INLINE foldr #-}
 
-
 class Distribution m where
     {-# MINIMAL distrib #-}
     distrib :: Foldable f => (a -> (b, Rational)) -> f a -> m b

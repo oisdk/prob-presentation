@@ -1,7 +1,9 @@
 {-# LANGUAGE DeriveFunctor  #-}
 {-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE DeriveTraversable #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Control.Monad.Prob.List where
+module Control.Monad.Weight.List where
     
 import Control.Monad.Prob.Class
 import Control.Lens
@@ -14,7 +16,7 @@ import Data.Function
 newtype Dist a
     = Dist
     { runDist :: [(a, Rational)]
-    } deriving (Functor, Foldable)
+    } deriving (Functor, Foldable, Traversable)
 
 _Compressed :: Ord a => Iso (Dist a) (Dist b) (Map a Rational) (Map b Rational)
 _Compressed = iso (Map.fromListWith (+) . runDist) (Dist .  Map.toList)
@@ -44,41 +46,3 @@ instance Distribution Dist where
 instance Expect Dist where
     expect p xs
       = sum [ p x * xp | (x,xp) <- runDist xs ] / sum (map snd (runDist xs))
-
---data Gender = Boy | Girl deriving (Show,Eq,Ord)
---
---data Child
---  = Child
---  { gender :: Gender
---  , age    :: Int
---  }
---  
---child :: Dist Child
---child = do
---    gn <- uniform [Boy,Girl]
---    ag <- uniform [1..17]
---    return (Child gn ag)
---    
---mrJones :: Dist [Child]
---mrJones = do
---  child1 <- child
---  child2 <- child
---  if age child1 > age child2
---    then guard (gender child1 == Girl)
---    else guard (gender child2 == Girl)
---  return [child1, child2]
---
---mrSmith :: Dist [Child]
---mrSmith = do
---  child1 <- child
---  child2 <- child
---  guard (gender child1 == Boy || gender child2 == Boy)
---  return [child1, child2]
---
-
---
---
---probOf :: (a -> Bool) -> Dist a -> Rational
---probOf p = expect (\x -> if p x then 1 else 0)
---
---

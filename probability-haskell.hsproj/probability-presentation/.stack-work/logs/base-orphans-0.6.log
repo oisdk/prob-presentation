@@ -1,0 +1,20 @@
+Configuring base-orphans-0.6...
+Building base-orphans-0.6...
+Preprocessing library base-orphans-0.6...
+[1 of 2] Compiling Data.Orphans.Prelude ( src/Data/Orphans/Prelude.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Orphans/Prelude.o )
+[2 of 2] Compiling Data.Orphans     ( src/Data/Orphans.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Orphans.o )
+Running Haddock for base-orphans-0.6...
+Preprocessing library base-orphans-0.6...
+Haddock coverage:
+Warning: Data.Orphans.Prelude: Could not find documentation for exported module: OrphansPrelude
+  33% (  1 /  3) in 'Data.Orphans.Prelude'
+  Missing documentation for:
+    realPart (src/Data/Orphans/Prelude.hs:122)
+    imagPart (src/Data/Orphans/Prelude.hs:122)
+ 100% (  1 /  1) in 'Data.Orphans'
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/base-orphans/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/base-orphans/base-orphans.txt
+Installing library in
+/Users/doisinkidney/.stack/snapshots/x86_64-osx/lts-9.6/8.0.2/lib/x86_64-osx-ghc-8.0.2/base-orphans-0.6-AbJ3lKVXygDCG0eeQEv8Iu
+Registering base-orphans-0.6...

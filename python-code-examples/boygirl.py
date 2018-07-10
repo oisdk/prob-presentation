@@ -3,7 +3,7 @@ from random import randrange, choice
 
 class Child:
     def __init__(self):
-        self.gender = choice(('boy', 'girl'))
+        self.gender = choice(['boy', 'girl'])
         self.age = randrange(18)
 
 
@@ -37,7 +37,11 @@ def expect(predicate, process, iterations=100):
     return success / tot
 
 
-expect(lambda children: all(child.gender == 'girl' for child in children),
-       mr_jones)
-expect(lambda children: all(child.gender == 'boy' for child in children),
-       mr_smith)
+p_1 = expect(
+    lambda children: all(child.gender == 'girl'
+                         for child in children),
+    mr_jones)
+p_2 = expect(
+    lambda children: all(child.gender == 'boy'
+                         for child in children),
+    mr_smith)

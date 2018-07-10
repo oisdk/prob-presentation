@@ -5,6 +5,7 @@
                      '(("beamer" "usenames" "dvipsnames")))
    (add-to-list 'LaTeX-verbatim-environments-local "semiverbatim")
    (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
+   (add-to-list 'LaTeX-verbatim-environments-local "minted")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
@@ -22,6 +23,7 @@
     "amsmath"
     "forest"
     "mathtools"
+    "minted"
     "listings"
     "biblatex"
     "multicol")

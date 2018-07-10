@@ -1,0 +1,156 @@
+Configuring primitive-0.6.2.0...
+Building primitive-0.6.2.0...
+Preprocessing library primitive-0.6.2.0...
+[ 1 of 12] Compiling Data.Primitive.MachDeps ( Data/Primitive/MachDeps.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/MachDeps.o )
+[ 2 of 12] Compiling Data.Primitive.Internal.Operations ( Data/Primitive/Internal/Operations.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/Internal/Operations.o )
+[ 3 of 12] Compiling Data.Primitive.Internal.Compat ( Data/Primitive/Internal/Compat.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/Internal/Compat.o )
+[ 4 of 12] Compiling Control.Monad.Primitive ( Control/Monad/Primitive.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Control/Monad/Primitive.o )
+
+Control/Monad/Primitive.hs:47:1: warning: [-Wdeprecations]
+    Module ‘Control.Monad.Trans.Error’ is deprecated:
+      Use Control.Monad.Trans.Except instead
+
+Control/Monad/Primitive.hs:109:11: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Primitive.hs:109:47: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Primitive.hs:110:19: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+[ 5 of 12] Compiling Data.Primitive.Array ( Data/Primitive/Array.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/Array.o )
+[ 6 of 12] Compiling Data.Primitive.MutVar ( Data/Primitive/MutVar.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/MutVar.o )
+[ 7 of 12] Compiling Data.Primitive.SmallArray ( Data/Primitive/SmallArray.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/SmallArray.o )
+[ 8 of 12] Compiling Data.Primitive.Types ( Data/Primitive/Types.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/Types.o )
+[ 9 of 12] Compiling Data.Primitive.Addr ( Data/Primitive/Addr.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/Addr.o )
+[10 of 12] Compiling Data.Primitive.ByteArray ( Data/Primitive/ByteArray.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/ByteArray.o )
+[11 of 12] Compiling Data.Primitive   ( Data/Primitive.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive.o )
+[12 of 12] Compiling Data.Primitive.UnliftedArray ( Data/Primitive/UnliftedArray.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Primitive/UnliftedArray.o )
+Running Haddock for primitive-0.6.2.0...
+Preprocessing library primitive-0.6.2.0...
+
+Control/Monad/Primitive.hs:47:1: warning: [-Wdeprecations]
+    Module ‘Control.Monad.Trans.Error’ is deprecated:
+      Use Control.Monad.Trans.Except instead
+
+Control/Monad/Primitive.hs:109:11: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Primitive.hs:109:47: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Primitive.hs:110:19: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+Haddock coverage:
+   3% (  1 / 35) in 'Data.Primitive.MachDeps'
+  Missing documentation for:
+    sIZEOF_CHAR (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_CHAR (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_INT (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_INT (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_WORD (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_WORD (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_DOUBLE (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_DOUBLE (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_FLOAT (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_FLOAT (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_PTR (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_PTR (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_FUNPTR (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_FUNPTR (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_STABLEPTR (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_STABLEPTR (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_INT8 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_INT8 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_WORD8 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_WORD8 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_INT16 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_INT16 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_WORD16 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_WORD16 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_INT32 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_INT32 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_WORD32 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_WORD32 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_INT64 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_INT64 (Data/Primitive/MachDeps.hs:19)
+    sIZEOF_WORD64 (Data/Primitive/MachDeps.hs:19)
+    aLIGNMENT_WORD64 (Data/Primitive/MachDeps.hs:19)
+    Word64_# (Data/Primitive/MachDeps.hs:120)
+    Int64_# (Data/Primitive/MachDeps.hs:121)
+   3% (  1 / 29) in 'Data.Primitive.Internal.Operations'
+  Missing documentation for:
+    setWord8Array# (Data/Primitive/Internal/Operations.hs:33)
+    setWord16Array# (Data/Primitive/Internal/Operations.hs:35)
+    setWord32Array# (Data/Primitive/Internal/Operations.hs:37)
+    setWord64Array# (Data/Primitive/Internal/Operations.hs:39)
+    setWordArray# (Data/Primitive/Internal/Operations.hs:41)
+    setInt8Array# (Data/Primitive/Internal/Operations.hs:43)
+    setInt16Array# (Data/Primitive/Internal/Operations.hs:45)
+    setInt32Array# (Data/Primitive/Internal/Operations.hs:47)
+    setInt64Array# (Data/Primitive/Internal/Operations.hs:49)
+    setIntArray# (Data/Primitive/Internal/Operations.hs:51)
+    setAddrArray# (Data/Primitive/Internal/Operations.hs:53)
+    setFloatArray# (Data/Primitive/Internal/Operations.hs:55)
+    setDoubleArray# (Data/Primitive/Internal/Operations.hs:57)
+    setWideCharArray# (Data/Primitive/Internal/Operations.hs:59)
+    setWord8OffAddr# (Data/Primitive/Internal/Operations.hs:62)
+    setWord16OffAddr# (Data/Primitive/Internal/Operations.hs:64)
+    setWord32OffAddr# (Data/Primitive/Internal/Operations.hs:66)
+    setWord64OffAddr# (Data/Primitive/Internal/Operations.hs:68)
+    setWordOffAddr# (Data/Primitive/Internal/Operations.hs:70)
+    setInt8OffAddr# (Data/Primitive/Internal/Operations.hs:72)
+    setInt16OffAddr# (Data/Primitive/Internal/Operations.hs:74)
+    setInt32OffAddr# (Data/Primitive/Internal/Operations.hs:76)
+    setInt64OffAddr# (Data/Primitive/Internal/Operations.hs:78)
+    setIntOffAddr# (Data/Primitive/Internal/Operations.hs:80)
+    setAddrOffAddr# (Data/Primitive/Internal/Operations.hs:82)
+    setFloatOffAddr# (Data/Primitive/Internal/Operations.hs:84)
+    setDoubleOffAddr# (Data/Primitive/Internal/Operations.hs:86)
+    setWideCharOffAddr# (Data/Primitive/Internal/Operations.hs:88)
+ 100% (  3 /  3) in 'Data.Primitive.Internal.Compat'
+  81% ( 17 / 21) in 'Control.Monad.Primitive'
+  Missing documentation for:
+    unsafeInlinePrim (Control/Monad/Primitive.hs:220)
+    unsafeInlineIO (Control/Monad/Primitive.hs:224)
+    unsafeInlineST (Control/Monad/Primitive.hs:228)
+    touch (Control/Monad/Primitive.hs:232)
+  90% ( 19 / 21) in 'Data.Primitive.Array'
+  Missing documentation for:
+    sizeofArray (Data/Primitive/Array.hs:77)
+    sizeofMutableArray (Data/Primitive/Array.hs:81)
+ 100% (  9 /  9) in 'Data.Primitive.MutVar'
+  78% ( 14 / 18) in 'Data.Primitive.SmallArray'
+  Missing documentation for:
+    SmallArray (Data/Primitive/SmallArray.hs:90)
+    SmallMutableArray (Data/Primitive/SmallArray.hs:123)
+    sizeofSmallArray (Data/Primitive/SmallArray.hs:361)
+    sizeofSmallMutableArray (Data/Primitive/SmallArray.hs:369)
+ 100% (  3 /  3) in 'Data.Primitive.Types'
+ 100% ( 16 / 16) in 'Data.Primitive.Addr'
+  93% ( 27 / 29) in 'Data.Primitive.ByteArray'
+  Missing documentation for:
+    ByteArray#
+    MutableByteArray#
+ 100% (  7 /  7) in 'Data.Primitive'
+ 100% ( 21 / 21) in 'Data.Primitive.UnliftedArray'
+Warning: Control.Monad.Primitive: could not find link destinations for:
+    ~
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/primitive/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/primitive/primitive.txt
+Installing library in
+/Users/doisinkidney/.stack/snapshots/x86_64-osx/lts-9.6/8.0.2/lib/x86_64-osx-ghc-8.0.2/primitive-0.6.2.0-4578caNkWQ54Gt1mxLF2Yh
+Registering primitive-0.6.2.0...

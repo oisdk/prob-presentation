@@ -1,0 +1,113 @@
+[1 of 2] Compiling Main             ( /private/var/folders/dx/1_xr7s8n7_b270c0msfnh9k80000gn/T/stack30621/distributive-0.5.3/Setup.lhs, /private/var/folders/dx/1_xr7s8n7_b270c0msfnh9k80000gn/T/stack30621/distributive-0.5.3/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/Main.o )
+[2 of 2] Compiling StackSetupShim   ( /Users/doisinkidney/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /private/var/folders/dx/1_xr7s8n7_b270c0msfnh9k80000gn/T/stack30621/distributive-0.5.3/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/StackSetupShim.o )
+Linking /private/var/folders/dx/1_xr7s8n7_b270c0msfnh9k80000gn/T/stack30621/distributive-0.5.3/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/setup ...
+
+In file included from /var/folders/dx/1_xr7s8n7_b270c0msfnh9k80000gn/T/ghc32401_0/ghc_10.c:1:0: error:
+    
+
+In file included from /Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/Rts.h:217:0: error:
+    
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:505:5: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#if ZERO_SLOP_FOR_LDV_PROF || ZERO_SLOP_FOR_SANITY_CHECK
+    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:502:37: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_LDV_PROF'
+#define ZERO_SLOP_FOR_LDV_PROF     (defined(PROFILING))
+                                    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:505:31: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#if ZERO_SLOP_FOR_LDV_PROF || ZERO_SLOP_FOR_SANITY_CHECK
+                              ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:503:37: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_SANITY_CHECK'
+#define ZERO_SLOP_FOR_SANITY_CHECK (defined(DEBUG) && !defined(THREADED_RTS))
+                                    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:505:31: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:503:56: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_SANITY_CHECK'
+#define ZERO_SLOP_FOR_SANITY_CHECK (defined(DEBUG) && !defined(THREADED_RTS))
+                                                       ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:523:5: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#if ZERO_SLOP_FOR_LDV_PROF && !ZERO_SLOP_FOR_SANITY_CHECK
+    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:502:37: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_LDV_PROF'
+#define ZERO_SLOP_FOR_LDV_PROF     (defined(PROFILING))
+                                    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:523:32: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#if ZERO_SLOP_FOR_LDV_PROF && !ZERO_SLOP_FOR_SANITY_CHECK
+                               ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:503:37: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_SANITY_CHECK'
+#define ZERO_SLOP_FOR_SANITY_CHECK (defined(DEBUG) && !defined(THREADED_RTS))
+                                    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:523:32: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:503:56: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_SANITY_CHECK'
+#define ZERO_SLOP_FOR_SANITY_CHECK (defined(DEBUG) && !defined(THREADED_RTS))
+                                                       ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:552:5: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#if ZERO_SLOP_FOR_LDV_PROF && !ZERO_SLOP_FOR_SANITY_CHECK
+    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:502:37: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_LDV_PROF'
+#define ZERO_SLOP_FOR_LDV_PROF     (defined(PROFILING))
+                                    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:552:32: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#if ZERO_SLOP_FOR_LDV_PROF && !ZERO_SLOP_FOR_SANITY_CHECK
+                               ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:503:37: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_SANITY_CHECK'
+#define ZERO_SLOP_FOR_SANITY_CHECK (defined(DEBUG) && !defined(THREADED_RTS))
+                                    ^
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:552:32: error:
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+
+/Users/doisinkidney/.stack/programs/x86_64-osx/ghc-8.0.2/lib/ghc-8.0.2/include/rts/storage/ClosureMacros.h:503:56: error:
+     note: expanded from macro 'ZERO_SLOP_FOR_SANITY_CHECK'
+#define ZERO_SLOP_FOR_SANITY_CHECK (defined(DEBUG) && !defined(THREADED_RTS))
+                                                       ^
+9 warnings generated.
+clang: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Configuring distributive-0.5.3...
+Building distributive-0.5.3...
+Preprocessing library distributive-0.5.3...
+[1 of 2] Compiling Data.Distributive ( src/Data/Distributive.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Distributive.o )
+[2 of 2] Compiling Data.Distributive.Generic ( src/Data/Distributive/Generic.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Distributive/Generic.o )
+Running Haddock for distributive-0.5.3...
+Preprocessing library distributive-0.5.3...
+Haddock coverage:
+ 100% (  5 /  5) in 'Data.Distributive'
+  75% (  3 /  4) in 'Data.Distributive.Generic'
+  Missing documentation for:
+    GDistributive (src/Data/Distributive/Generic.hs:51)
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/distributive/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/distributive/distributive.txt
+Installing library in
+/Users/doisinkidney/.stack/snapshots/x86_64-osx/lts-9.6/8.0.2/lib/x86_64-osx-ghc-8.0.2/distributive-0.5.3-IX4kyVcHAyoH4uFYrsjY1R
+Registering distributive-0.5.3...

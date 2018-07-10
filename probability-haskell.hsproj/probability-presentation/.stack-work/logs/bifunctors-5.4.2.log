@@ -1,0 +1,10 @@
+Configuring bifunctors-5.4.2...
+Building bifunctors-5.4.2...
+Preprocessing library bifunctors-5.4.2...
+[ 1 of 17] Compiling Paths_bifunctors ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_bifunctors.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Paths_bifunctors.o )
+[ 2 of 17] Compiling Data.Bifunctor.Functor ( src/Data/Bifunctor/Functor.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Bifunctor/Functor.o )
+[ 3 of 17] Compiling Data.Bifoldable  ( old-src/ghc801/Data/Bifoldable.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Bifoldable.o )
+[ 4 of 17] Compiling Data.Bitraversable ( old-src/ghc801/Data/Bitraversable.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Bitraversable.o )
+[ 5 of 17] Compiling Data.Bifunctor.Sum ( src/Data/Bifunctor/Sum.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Bifunctor/Sum.o )
+[ 6 of 17] Compiling Data.Bifunctor.TH.Internal ( src/Data/Bifunctor/TH/Internal.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Bifunctor/TH/Internal.o )
+[ 7 of 17] Compiling Data.Bifunctor.TH ( src/Data/Bifunctor/TH.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/Bifunctor/TH.o )

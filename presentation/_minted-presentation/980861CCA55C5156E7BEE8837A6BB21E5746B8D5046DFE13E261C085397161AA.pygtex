@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{children\PYGZus{}1} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Child}\PYG{p}{(),} \PYG{n}{Child}\PYG{p}{()]}
+\PYG{n}{children\PYGZus{}2} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Child}\PYG{p}{()]} \PYG{o}{*} \PYG{l+m+mi}{2}
+\end{Verbatim}

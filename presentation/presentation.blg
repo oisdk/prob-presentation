@@ -1,17 +1,17 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'presentation.blg'
-[44] biber-darwin:313> INFO - === Mon Jul  9, 2018, 18:06:23
-[69] Biber.pm:371> INFO - Reading 'presentation.bcf'
-[155] Biber.pm:857> INFO - Found 7 citekeys in bib section 0
-[169] Biber.pm:3976> INFO - Processing section 0
-[179] Biber.pm:4136> INFO - Looking for bibtex format file '../Probability.bib' for section 0
-[183] bibtex.pm:1500> INFO - LaTeX decoding ...
-[256] bibtex.pm:1316> INFO - Found BibTeX data source '../Probability.bib'
-[293] Utils.pm:193> WARN - ISBN '978-3-540-11211-2 978-3-540-39041-1' in entry 'dold_categorical_1982' is invalid - run biber with '--validate_datamodel' for details.
-[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[328] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[328] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
-[339] bbl.pm:617> INFO - Writing 'presentation.bbl' with encoding 'UTF-8'
-[342] bbl.pm:720> INFO - Output to presentation.bbl
-[343] Biber.pm:110> INFO - WARNINGS: 1
+[36] biber-darwin:313> INFO - === Tue Jul 10, 2018, 15:33:48
+[56] Biber.pm:371> INFO - Reading 'presentation.bcf'
+[145] Biber.pm:857> INFO - Found 7 citekeys in bib section 0
+[157] Biber.pm:3976> INFO - Processing section 0
+[167] Biber.pm:4136> INFO - Looking for bibtex format file '../Probability.bib' for section 0
+[171] bibtex.pm:1500> INFO - LaTeX decoding ...
+[247] bibtex.pm:1316> INFO - Found BibTeX data source '../Probability.bib'
+[283] Utils.pm:193> WARN - ISBN '978-3-540-11211-2 978-3-540-39041-1' in entry 'dold_categorical_1982' is invalid - run biber with '--validate_datamodel' for details.
+[320] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[320] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[320] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[320] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[331] bbl.pm:617> INFO - Writing 'presentation.bbl' with encoding 'UTF-8'
+[333] bbl.pm:720> INFO - Output to presentation.bbl
+[334] Biber.pm:110> INFO - WARNINGS: 1

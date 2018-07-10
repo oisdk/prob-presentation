@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{random} \PYG{k+kn}{import} \PYG{n}{randrange}\PYG{p}{,} \PYG{n}{choice}
+
+\PYG{k}{class} \PYG{n+nc}{Child}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{gender} \PYG{o}{=} \PYG{n}{choice}\PYG{p}{([}\PYG{l+s+s1}{\PYGZsq{}boy\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}girl\PYGZsq{}}\PYG{p}{])}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{age} \PYG{o}{=} \PYG{n}{randrange}\PYG{p}{(}\PYG{l+m+mi}{18}\PYG{p}{)}
+\end{Verbatim}

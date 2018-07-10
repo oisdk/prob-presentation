@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{expect}\PYG{p}{(}\PYG{n}{predicate}\PYG{p}{,} \PYG{n}{process}\PYG{p}{,} \PYG{n}{iterations}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{):}
+    \PYG{n}{success}\PYG{p}{,} \PYG{n}{tot} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{iterations}\PYG{p}{):}
+        \PYG{k}{try}\PYG{p}{:}
+            \PYG{n}{success} \PYG{o}{+=} \PYG{n}{predicate}\PYG{p}{(}\PYG{n}{process}\PYG{p}{())}
+            \PYG{n}{tot} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{k}{except} \PYG{n+ne}{AssertionError}\PYG{p}{:}
+            \PYG{k}{pass}
+    \PYG{k}{return} \PYG{n}{success} \PYG{o}{/} \PYG{n}{tot}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+-- Haskell Playground 1.0
+let d = distrib id [(True,3/4), (False,1/4)] :: Dist Bool
+
+probOf not d
+probOf id d

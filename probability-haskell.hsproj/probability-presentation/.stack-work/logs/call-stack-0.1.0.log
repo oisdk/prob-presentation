@@ -1,0 +1,34 @@
+Configuring call-stack-0.1.0...
+Building call-stack-0.1.0...
+Preprocessing library call-stack-0.1.0...
+[1 of 3] Compiling Paths_call_stack ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Paths_call_stack.o )
+[2 of 3] Compiling Data.SrcLoc      ( src/Data/SrcLoc.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/SrcLoc.o )
+[3 of 3] Compiling Data.CallStack   ( src/Data/CallStack.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Data/CallStack.o )
+Running Haddock for call-stack-0.1.0...
+Preprocessing library call-stack-0.1.0...
+Haddock coverage:
+   0% (  0 /  9) in 'Paths_call_stack'
+  Missing documentation for:
+    Module header
+    version (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:28)
+    getBinDir (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:39)
+    getLibDir (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:39)
+    getDynLibDir (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:39)
+    getDataDir (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:39)
+    getLibexecDir (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:39)
+    getDataFileName (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:47)
+    getSysconfDir (.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/autogen/Paths_call_stack.hs:39)
+  50% (  1 /  2) in 'Data.SrcLoc'
+  Missing documentation for:
+    Module header
+  40% (  2 /  5) in 'Data.CallStack'
+  Missing documentation for:
+    Module header
+    CallStack (src/Data/CallStack.hs:28)
+    callStack (src/Data/CallStack.hs:30)
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/call-stack/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/call-stack/call-stack.txt
+Installing library in
+/Users/doisinkidney/.stack/snapshots/x86_64-osx/lts-9.6/8.0.2/lib/x86_64-osx-ghc-8.0.2/call-stack-0.1.0-FYVrCPXGP9EGAuTW32963O
+Registering call-stack-0.1.0...

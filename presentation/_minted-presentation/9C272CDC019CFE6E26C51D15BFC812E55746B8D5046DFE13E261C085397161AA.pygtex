@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mr\PYGZus{}smith}\PYG{p}{():}
+    \PYG{n}{child\PYGZus{}1} \PYG{o}{=} \PYG{n}{Child}\PYG{p}{()}
+    \PYG{n}{child\PYGZus{}2} \PYG{o}{=} \PYG{n}{Child}\PYG{p}{()}
+    \PYG{k}{assert} \PYG{n}{child\PYGZus{}1}\PYG{o}{.}\PYG{n}{gender} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}boy\PYGZsq{}} \PYG{o+ow}{or} \PYGZbs{}
+           \PYG{n}{child\PYGZus{}2}\PYG{o}{.}\PYG{n}{gender} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}boy\PYGZsq{}}
+    \PYG{k}{return} \PYG{p}{[}\PYG{n}{child\PYGZus{}1}\PYG{p}{,} \PYG{n}{child\PYGZus{}2}\PYG{p}{]}
+\end{Verbatim}
