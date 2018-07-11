@@ -20,8 +20,8 @@
 \defcounter {refsection}{0}\relax 
 \beamer@subsectionintoc {3}{2}{Giry Monad}{40}{0}{3}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {4}{Other Applications}{54}{0}{4}
+\beamer@sectionintoc {4}{Other Applications}{59}{0}{4}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {4}{1}{Differential Privacy}{55}{0}{4}
+\beamer@subsectionintoc {4}{1}{Differential Privacy}{60}{0}{4}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {5}{Conclusion}{57}{0}{5}
+\beamer@sectionintoc {5}{Conclusion}{62}{0}{5}

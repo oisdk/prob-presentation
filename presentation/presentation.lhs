@@ -4,6 +4,8 @@
 \usepackage{forest}
 \usepackage{mathtools}
 \usepackage{minted}
+\usepackage{tikz}
+\usepackage{tikz-cd}
 \setminted{autogobble}
 % \setbeameroption{show notes}
 \usetheme{metropolis}
@@ -392,30 +394,62 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
   Giry\footfullcite{dold_categorical_1982} gave a categorical interpretation of
   probability theory.
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Categories, Quickly}
-  A category $\mathbf{C}$ has:
   \pause
-  \begin{description}
-    \item[Objects] $\mathbf{Ob}(\mathbf{C})$
-    \pause
-    \item[Arrows] $\mathbf{hom}_{\mathbf{C}}$
-  \end{description}
+  \begin{columns}
+    \column{0.3\textwidth}
+    \begin{equation*}
+      \begin{tikzcd}
+        X \arrow[r, "f"] \arrow[rd, "g \circ f"'] & Y \arrow[d, "g"] \\
+                                                  & Z
+      \end{tikzcd}
+    \end{equation*}
+    \column{0.7\textwidth}
+    \begin{description}
+      \pause
+      \item[Objects] $\mathbf{Ob}(\mathbf{C}) = \{X, Y, Z\}$
+      \pause
+      \item[Arrows] $\mathbf{hom}_{\mathbf{C}}(X, Y) = X \rightarrow Y$
+      \pause
+      \item[Composition] $\circ$
+    \end{description}
+  \end{columns}
   \pause
-  Arrows form a monoid under composition:
-  \begin{multline}
-    (\mathbf{hom}_{\mathbf{C}}(c,d) \circ \mathbf{hom}_{\mathbf{C}}(b,c)) \circ \mathbf{hom}_{\mathbf{C}}(a,b) = \\
-    \mathbf{hom}_{\mathbf{C}}(c,d) \circ (\mathbf{hom}_{\mathbf{C}}(b,c) \circ \mathbf{hom}_{\mathbf{C}}(a,b))
-  \end{multline}
-  \begin{equation}
-    \forall a. a \in \mathbf{Ob}(\mathbf{C}) \: \exists \; \mathit{id}_a : \mathbf{hom}_{\mathbf{C}}(a, a)
-  \end{equation}
+  \begin{block}{Arrows form a monoid under composition}
+    \begin{columns}
+      \column{0.5\textwidth}
+      \begin{equation*}
+        \begin{tikzcd}
+          W \ar[r, "f"] \ar[rd, "g \circ f"'] & X \ar[d, "g"]  \ar[rd, "h \circ g"] & \\
+                                              & Y \ar[r, "h"] & Z
+        \end{tikzcd}
+      \end{equation*}
+      \column{0.5\textwidth}
+        \begin{equation}
+          (h \circ g) \circ f = h \circ (g \circ f)
+        \end{equation}
+    \end{columns}
+    \begin{columns}
+      \column{0.5\textwidth}
+      \begin{equation*}
+        \begin{tikzcd}
+          A \arrow[loop right, "id_A"]
+        \end{tikzcd}
+      \end{equation*}
+      \column{0.5\textwidth}
+      \begin{equation}
+        \forall A. A \in \mathbf{Ob}(\mathbf{C}) \: \exists \; \mathit{id}_A : \mathbf{hom}_{\mathbf{C}}(A, A)
+      \end{equation}
+    \end{columns}
+  \end{block}
   \pause
-
-  $\mathbf{Set}$ is the category of sets, where objects are sets, and arrows
-  are functions.
+  \begin{block}{Example}
+    $\mathbf{Set}$ is the category of sets, where objects are sets, and arrows
+    are functions.
+  \end{block}
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Functors}
   The category of (small) categories, $\mathbf{Cat}$, has morphisms called
   Functors.
@@ -424,6 +458,13 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
   These can be thought of as ways to ``embed'' one category into another.
   \pause
 
+  \begin{equation*}
+    \begin{tikzcd}
+      \mathbf{F}X \ar[r, "\mathbf{F}f"] & \mathbf{F}Y \\
+      X \ar[r, "f"] \ar[u]              & Y \ar[u]
+    \end{tikzcd}
+  \end{equation*}
+  
   Functors which embed categories into themselves are called Endofunctors.
 \end{frame}
 \begin{frame}
@@ -451,18 +492,40 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
   The arrows ($\mathbf{hom}_{\mathbf{Meas}}$) are measurable maps.
 
   \pause
-  The monad is from above:
-  \begin{gather}
-    \eta = \textcolor{Sepia}{\mathit{return}} \\
-    \mu(\mathit{P}) = \mathit{P} \bind \mathit{id}
-  \end{gather}
+  The objects are measurable spaces.
+
+  \pause
+  We can construct a functor ($\mathcal{P}$), which, for any given measurable
+  space $\mathcal{M}$, is the space of all possible measures on it.
+
+  \pause
+  $\mathcal{P}(\mathcal{M})$ is itself a measurable space: measuring is
+  integrating over some variable $\textcolor{Sepia}{\mathit{a}}$ in
+  $\mathcal{M}$.
+
+  \pause
+  In code (we restrict to measurable functions):
+  \begin{code}
+    newtype Measure a = Measure ((a -> Rational) -> Rational)
+  \end{code}
 \end{frame}
 \begin{frame}
-  \frametitle{Implementation}
-  The implementation of the Giry monad is quite direct:
+  We now get $\eta$ and $\mu$:
+
   \begin{code}
-    newtype Measure a = Measure ((a -> Double) -> Double)
+    integrate :: Measure a -> (a -> Rational) -> Rational
+    integrate (Measure m) f = m f
+
+    return :: a -> Measure a
+    return x = Measure (\measure -> measure x)
+
+    (>>=) :: Measure a -> (a -> Measure b) -> Measure b
+    xs >>= f = Measure  (\measure -> integrate xs
+                        (\x -> integrate (f x)
+                        (\y -> measure y)))
   \end{code}
+  
+  
 \end{frame}
 \section{Other Applications}
 \subsection{Differential Privacy}

@@ -1,47 +1,16 @@
-As we will use this as a DSL, we need to define the language features we used
-  above:
-  \begin{onlyenv}<1>
-    \begin{minted}{python}
-      def mr_smith():
-          child_1 = Child()
-          child_2 = Child()
-          assert child_1.gender == 'boy' or \
-                 child_2.gender == 'boy'
-          return [child_1, child_2]
-    \end{minted}
-  \end{onlyenv}
-  \begin{onlyenv}<2>
-    \begin{minted}[highlightlines={2,3}, highlightcolor=Goldenrod]{python}
-      def mr_smith():
-          child_1 = Child()
-          child_2 = Child()
-          assert child_1.gender == 'boy' or \
-                 child_2.gender == 'boy'
-          return [child_1, child_2]
-    \end{minted}
-  \end{onlyenv}
-  \begin{onlyenv}<3>
-    \begin{minted}[highlightlines={4,5}, highlightcolor=Goldenrod]{python}
-      def mr_smith():
-          child_1 = Child()
-          child_2 = Child()
-          assert child_1.gender == 'boy' or \
-                 child_2.gender == 'boy'
-          return [child_1, child_2]
-    \end{minted}
-  \end{onlyenv}
-  \begin{onlyenv}<4>
-    \begin{minted}[highlightlines={6}, highlightcolor=Goldenrod]{python}
-      def mr_smith():
-          child_1 = Child()
-          child_2 = Child()
-          assert child_1.gender == 'boy' or \
-                 child_2.gender == 'boy'
-          return [child_1, child_2]
-    \end{minted}
-  \end{onlyenv}
-  \begin{enumerate}
-    \item<2-> \text{\tt \char61{}} (assignment)
-    \item<3-> \text{\tt assert}
-    \item<4-> \text{\tt return}
-  \end{enumerate}
+\frametitle{Functors}
+  The category of (small) categories, $\mathbf{Cat}$, has morphisms called
+  Functors.
+  \pause
+
+  These can be thought of as ways to ``embed'' one category into another.
+  \pause
+
+  \begin{equation*}
+    \begin{tikzcd}
+      \mathbf{F}X \ar[r, "\mathbf{F}f"] & \mathbf{F}Y \\
+      X \ar[r, "f"] \ar[u]              & Y \ar[u]
+    \end{tikzcd}
+  \end{equation*}
+
+  Functors which embed categories into themselves are called Endofunctors.

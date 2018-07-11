@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.31)  10 JUL 2018 17:02
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.31)  11 JUL 2018 16:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1326,6 +1326,26 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 runsystem(mkdir -p _minted-presentation)...executed.
 
 
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2014/03/21 v3.0.1a (rcs-revision 1.4)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2015/05/13 v3.0.1a (rcs-revision 1.13)
+\pgfarrowinset=\dimen317
+\pgfarrowlength=\dimen318
+\pgfarrowwidth=\dimen319
+\pgfarrowlinewidth=\dimen320
+)))
 (/Users/doisinkidney/Library/texmf/tex/latex/metropolis/beamerthememetropolis.s
 ty
 Package: beamerthememetropolis 2017/01/23 v1.2 Metropolis Beamer theme
@@ -1368,9 +1388,9 @@ X
 \l__fontspec_emdef_int=\count381
 \l__fontspec_strong_int=\count382
 \l__fontspec_strongdef_int=\count383
-\l__fontspec_tmpa_dim=\dimen317
-\l__fontspec_tmpb_dim=\dimen318
-\l__fontspec_tmpc_dim=\dimen319
+\l__fontspec_tmpa_dim=\dimen321
+\l__fontspec_tmpb_dim=\dimen322
+\l__fontspec_tmpc_dim=\dimen323
 \g__file_internal_ior=\read5
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
@@ -1658,22 +1678,22 @@ Package: polytable 2013/07/18 v0.8.5 `polytable' package (Andres Loeh)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lazylist/lazylist.sty)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
 Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
-\col@sep=\dimen320
+\col@sep=\dimen324
 \ar@mcellbox=\box104
-\extrarowheight=\dimen321
+\extrarowheight=\dimen325
 \NC@list=\toks63
 \extratabsurround=\skip78
 \backup@length=\skip79
 \ar@cellbox=\box105
 )
-\PT@colwidth=\dimen322
+\PT@colwidth=\dimen326
 \PT@cols=\count387
 \PT@table=\count388
 \PT@toks=\toks64
 \PT@in=\read6
 \PT@out=\write9
 )
-\mathindent=\dimen323
+\mathindent=\dimen327
 \blanklineskip=\skip80
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
@@ -1681,14 +1701,14 @@ Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
 \lst@gtempboxa=\box106
 \lst@token=\toks65
 \lst@length=\count390
-\lst@currlwidth=\dimen324
+\lst@currlwidth=\dimen328
 \lst@column=\count391
 \lst@pos=\count392
-\lst@lostspace=\dimen325
-\lst@width=\dimen326
+\lst@lostspace=\dimen329
+\lst@width=\dimen330
 \lst@newlines=\count393
 \lst@lineno=\count394
-\lst@maxwidth=\dimen327
+\lst@maxwidth=\dimen331
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
@@ -1915,21 +1935,21 @@ File: biblatex.cfg
 Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
 \c@tracingmulticols=\count516
 \mult@box=\box108
-\multicol@leftmargin=\dimen328
+\multicol@leftmargin=\dimen332
 \c@unbalance=\count517
 \c@collectmore=\count518
 \doublecol@number=\count519
 \multicoltolerance=\count520
 \multicolpretolerance=\count521
-\full@width=\dimen329
-\page@free=\dimen330
-\premulticols=\dimen331
-\postmulticols=\dimen332
+\full@width=\dimen333
+\page@free=\dimen334
+\premulticols=\dimen335
+\postmulticols=\dimen336
 \multicolsep=\skip103
 \multicolbaselineskip=\skip104
 \partial@page=\box109
 \last@line=\box110
-\maxbalancingoverflow=\dimen333
+\maxbalancingoverflow=\dimen337
 \mult@rightbox=\box111
 \mult@grightbox=\box112
 \mult@gfirstbox=\box113
@@ -1953,9 +1973,9 @@ Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
 \@tempa=\box131
 \c@columnbadness=\count522
 \c@finalcolumnbadness=\count523
-\last@try=\dimen334
-\multicolovershoot=\dimen335
-\multicolundershoot=\dimen336
+\last@try=\dimen338
+\multicolovershoot=\dimen339
+\multicolundershoot=\dimen340
 \mult@nat@firstbox=\box132
 \colbreak@box=\box133
 \mc@col@check@num=\count524
@@ -1976,32 +1996,32 @@ File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 (./presentation.aux)
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 281.
-LaTeX Font Info:    ... okay on input line 281.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 281.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 281.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 283.
+LaTeX Font Info:    ... okay on input line 283.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 283.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 283.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    ... okay on input line 283.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -2039,7 +2059,7 @@ LaTeX Font Info:    ... okay on input line 281.
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box134
-Package hyperref Info: Link coloring OFF on input line 281.
+Package hyperref Info: Link coloring OFF on input line 283.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -2049,68 +2069,68 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count527
 )
-LaTeX Info: Redefining \ref on input line 281.
-LaTeX Info: Redefining \pageref on input line 281.
-LaTeX Info: Redefining \nameref on input line 281.
+LaTeX Info: Redefining \ref on input line 283.
+LaTeX Info: Redefining \pageref on input line 283.
+LaTeX Info: Redefining \nameref on input line 283.
 
 (./presentation.out) (./presentation.out)
 \@outlinefile=\write11
 \openout11 = `presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 281.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 283.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 281.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 283.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 281.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 281.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 283.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/FiraSansLight(0)/bx/n on input line
- 281.
+ 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/FiraSansLight(0)/bx/n on input line
- 281.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 281.
+ 283.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  OT1/cmss/m/n --> TU/FiraSansLight(0)/m/n on input line 
-281.
+283.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/FiraSansLight(0)/m/n on input line
- 281.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 281.
+ 283.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/FiraSansLight(0)/m/it on input line
- 281.
+ 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/FiraSansLight(0)/m/it on input lin
-e 281.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 281.
+e 283.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 281.
+(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 281.
+(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 283.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
 (Font)                  TU/FiraSansLight(0)/m/n --> TU/FiraSansLight(0)/bx/n on
- input line 281.
+ input line 283.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  TU/FiraSansLight(0)/m/it --> TU/FiraSansLight(0)/bx/it 
-on input line 281.
+on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmr/bx/n on input line 281.
+(Font)                  OT1/cmss/bx/n --> TU/lmr/bx/n on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  TU/FiraSansLight(0)/bx/n --> TU/FiraSansLight(0)/bx/n o
-n input line 281.
+n input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  TU/FiraSansLight(0)/m/n --> TU/FiraSansLight(0)/bx/n on
- input line 281.
+ input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  TU/FiraSansLight(0)/m/it --> TU/FiraSansLight(0)/bx/it 
-on input line 281.
+on input line 283.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  TU/FiraMono(0)/m/n --> TU/FiraMono(0)/bx/n on input lin
-e 281.
+e 283.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/translator/translator-basic-dicti
 onary-English.dict
@@ -2146,10 +2166,10 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'presentation.bbl' found.
  (./presentation.bbl)
-Package biblatex Info: Reference section=0 on input line 281.
-Package biblatex Info: Reference segment=0 on input line 281.
+Package biblatex Info: Reference section=0 on input line 283.
+Package biblatex Info: Reference segment=0 on input line 283.
  (./presentation.nav)
-Overfull \vbox (48.10193pt too high) detected at line 282
+Overfull \vbox (48.10193pt too high) detected at line 284
  []
 
 [1
@@ -2157,17 +2177,17 @@ Overfull \vbox (48.10193pt too high) detected at line 282
 ] (./presentation.toc) [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 288.
+LaTeX Font Info:    Try loading font information for U+msa on input line 290.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 288.
+LaTeX Font Info:    Try loading font information for U+msb on input line 290.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 288.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 290.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [3
@@ -2454,43 +2474,105 @@ t line 8.
 
 ] [40
 
-] [41
+]
+\openout4 = `presentation.vrb'.
 
-] [42
+ (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
 
-] [43
+[41
 
-] [44
+] (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
 
-] [45
+[42
 
-] [46
+] (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
 
-] [47
+[43
 
-] [48
+] (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
 
-] [49
+[44
 
-] [50
+] (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
+
+[45
+
+] (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
+
+[46
+
+] (./presentation.vrb)
+Overfull \vbox (19.63158pt too high) detected at line 869
+ []
+
+[47
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb) [48
+
+] (./presentation.vrb) [49
+
+] (./presentation.vrb)
+[50
 
 ] [51
-
-] [52
 
 ]
 \openout9 = `presentation.ptb'.
 
+ [52
 
-[53
+]
+\openout9 = `presentation.ptb'.
 
-] [54
+ [53
 
-] [55
+]
+\openout9 = `presentation.ptb'.
 
-] [56
+ [54
 
-] [57
+]
+\openout9 = `presentation.ptb'.
+
+ [55
+
+]
+\openout9 = `presentation.ptb'.
+
+ [56
+
+]
+\openout9 = `presentation.ptb'.
+
+ [57
+
+]
+\openout9 = `presentation.ptb'.
+
+ [58
+
+] [59
+
+] [60
+
+] [61
+
+] [62
 
 ]
 \tf@nav=\write12
@@ -2502,13 +2584,14 @@ t line 8.
 \tf@snm=\write14
 \openout14 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 905.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 905.
- (./presentation.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 905.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 905.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 979.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 979.
+
+(./presentation.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 979.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 979.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 89CDAC24B4E47FF7C9249F96E93F8C92.
+(rerunfilecheck)             Checksum: 1A0E367776B9148EB5AB3FB01986152C.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2520,12 +2603,12 @@ Package logreq Info: Writing requests to 'presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57067 strings out of 492970
- 1236743 string characters out of 6133938
- 1699611 words of memory out of 5000000
- 60191 multiletter control sequences out of 15000+600000
+ 58747 strings out of 492970
+ 1285156 string characters out of 6133938
+ 1730297 words of memory out of 5000000
+ 61833 multiletter control sequences out of 15000+600000
  539194 words of font info for 105 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 135i,15n,160p,10386b,4873s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 135i,19n,160p,10386b,4873s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on presentation.pdf (57 pages).
+Output written on presentation.pdf (62 pages).
