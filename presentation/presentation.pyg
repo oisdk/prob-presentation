@@ -1,0 +1,6 @@
+      def mr_smith():
+          child_1 = Child()
+          child_2 = Child()
+          assert child_1.gender == 'boy' or \
+                 child_2.gender == 'boy'
+          return [child_1, child_2]

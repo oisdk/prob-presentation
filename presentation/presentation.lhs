@@ -7,7 +7,7 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \setminted{autogobble}
-% \setbeameroption{show notes}
+\setbeameroption{show notes}
 \usetheme{metropolis}
 
 %include polycode.fmt
