@@ -12,16 +12,16 @@
 \defcounter {refsection}{0}\relax 
 \beamer@subsectionintoc {2}{1}{The Erwig And Kollmansberger Approach}{26}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {2}{2}{Other Interpreters}{39}{0}{2}
+\beamer@subsectionintoc {2}{2}{Other Interpreters}{40}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {3}{Theoretical Foundations}{43}{0}{3}
+\beamer@sectionintoc {3}{Theoretical Foundations}{44}{0}{3}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {3}{1}{Stochastic Lambda Calculus}{44}{0}{3}
+\beamer@subsectionintoc {3}{1}{Stochastic Lambda Calculus}{45}{0}{3}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {3}{2}{Giry Monad}{46}{0}{3}
+\beamer@subsectionintoc {3}{2}{Giry Monad}{47}{0}{3}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {4}{Other Applications}{65}{0}{4}
+\beamer@sectionintoc {4}{Other Applications}{66}{0}{4}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {4}{1}{Differential Privacy}{66}{0}{4}
+\beamer@subsectionintoc {4}{1}{Differential Privacy}{67}{0}{4}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {5}{Conclusion}{68}{0}{5}
+\beamer@sectionintoc {5}{Conclusion}{69}{0}{5}

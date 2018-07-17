@@ -1,1 +1,10 @@
 -- Haskell Playground 1.0
+die = uniform [1..6] :: Dist Integer
+
+
+sumd = die >>= \x ->
+       die >>= \y ->
+       return (x + y)
+    
+
+probOf (6==) sumd

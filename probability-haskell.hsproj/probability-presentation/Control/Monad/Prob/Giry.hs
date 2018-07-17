@@ -18,6 +18,8 @@ module Control.Monad.Prob.Giry where
 import Control.Monad.Cont
 import Control.Monad.Prob.Class
 
+
+-- Giry a = Giry ((a -> Rational) -> Rational)
 newtype Giry a
     = Giry
     { runGiry :: Cont Rational a

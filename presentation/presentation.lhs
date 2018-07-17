@@ -41,7 +41,8 @@
 \end{frame}
 \subsection{An Example}
 \begin{frame}
-  \frametitle{The Boy-Girl Paradox}
+  \frametitle{The Boy-Girl Paradox\footfullcite{gardner_2nd_1987}}
+  (apologies for the outdated language)
   \begin{enumerate}
     \item Mr. Jones has two children. The older child is a girl. What is the
       probability that both children are girls?

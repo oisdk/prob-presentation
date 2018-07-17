@@ -117,6 +117,36 @@
       \verb http://web.engr.oregonstate.edu/~erwig/papers/abstracts.html%5C#JFP06a
       \endverb
     \endentry
+    \entry{gardner_2nd_1987}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3124882705abf7cca548c58eb9240b39}{%
+           family={Gardner},
+           familyi={G\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chicago}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{3124882705abf7cca548c58eb9240b39}
+      \strng{fullhash}{3124882705abf7cca548c58eb9240b39}
+      \strng{bibnamehash}{3124882705abf7cca548c58eb9240b39}
+      \strng{authorbibnamehash}{3124882705abf7cca548c58eb9240b39}
+      \strng{authornamehash}{3124882705abf7cca548c58eb9240b39}
+      \strng{authorfullhash}{3124882705abf7cca548c58eb9240b39}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{University of Chicago Press ed}
+      \field{isbn}{978-0-226-28253-4}
+      \field{title}{The 2nd {{Scientific American}} Book of Mathematical Puzzles \& Diversions}
+      \field{year}{1987}
+      \keyw{Mathematical recreations}
+    \endentry
     \entry{dold_categorical_1982}{incollection}{}
       \name{author}{1}{}{%
         {{hash=4b2ee17af47c1a78a537cfb0b6f956af}{%
