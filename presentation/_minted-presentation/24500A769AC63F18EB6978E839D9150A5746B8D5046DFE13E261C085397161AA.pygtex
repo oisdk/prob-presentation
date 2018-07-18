@@ -5,7 +5,7 @@
     \PYG{n}{child\PYGZus{}1} \PYG{o}{=} \PYG{n}{Child}\PYG{p}{()}
     \PYG{n}{child\PYGZus{}2} \PYG{o}{=} \PYG{n}{Child}\PYG{p}{()}
     \PYG{n}{eldest} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{child\PYGZus{}1}\PYG{p}{,} \PYG{n}{child\PYGZus{}2}\PYG{p}{,}
-                \PYG{n}{key}\PYG{o}{=}\PYG{n}{attrgetter}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}age\PYGZsq{}}\PYG{p}{))}
+                 \PYG{n}{key}\PYG{o}{=}\PYG{n}{attrgetter}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}age\PYGZsq{}}\PYG{p}{))}
     \PYG{k}{assert} \PYG{n}{eldest}\PYG{o}{.}\PYG{n}{gender} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}girl\PYGZsq{}}
     \PYG{k}{return} \PYG{p}{[}\PYG{n}{child\PYGZus{}1}\PYG{p}{,} \PYG{n}{child\PYGZus{}2}\PYG{p}{]}
 \end{Verbatim}

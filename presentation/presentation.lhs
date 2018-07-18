@@ -51,14 +51,16 @@
   \end{enumerate}
   \pause
   Is the answer to \ref{mrsmith} $\frac{1}{3}$ or $\frac{1}{2}$?
-  \note{Gardner originally wrote that the second question (perhaps surprisingly)
-    has the answer 1/3. However, he later acknowledged the question was
-    ambiguous, and agreed that certain interpretations could correctly conclude
-    its answer was 1/2}
   \pause
 
   Part of the difficulty in the question is that it's ambiguous: can we use
   programming languages to lend some precision?
+\end{frame}
+\begin{frame}
+  Gardner originally wrote that the second question (perhaps surprisingly) has
+  the answer $\frac{1}{3}$. However, he later acknowledged the question was
+  ambiguous, and agreed that certain interpretations could correctly conclude
+  its answer was $\frac{1}{2}$.
 \end{frame}
 \begin{frame}[fragile, allowframebreaks]
   \frametitle{An Ad-Hoc Solution}
@@ -78,7 +80,7 @@
         child_1 = Child()
         child_2 = Child()
         eldest = max(child_1, child_2,
-                    key=attrgetter('age'))
+                     key=attrgetter('age'))
         assert eldest.gender == 'girl'
         return [child_1, child_2]
   \end{minted}
@@ -143,11 +145,11 @@
   \begin{minted}{python}
     p_1 = expect(
         lambda children: all(child.gender == 'girl'
-                            for child in children),
+                             for child in children),
         mr_jones)
     p_2 = expect(
         lambda children: all(child.gender == 'boy'
-                            for child in children),
+                             for child in children),
         mr_smith)
   \end{minted}
   \begin{gather*}
@@ -293,13 +295,15 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
 \end{frame}
 \begin{frame}
   \frametitle{Putting it all Together}
+  %format child_1
+  %format child_2
   \begin{code}
     mrSmith :: Dist [Child]
     mrSmith = do
-      child1 <- child
-      child2 <- child
-      guard (gender child1 == Boy || gender child2 == Boy)
-      return [child1, child2]
+      child_1 <- child
+      child_2 <- child
+      guard (gender child_1 == Boy || gender child_2 == Boy)
+      return [child_1, child_2]
 
     expect :: (a -> Rational) -> Dist a -> Rational
     expect p xs = frac (sum [ p x * xp | (x,xp) <- runDist xs ]) (sum [ xp | (_,xp) <- runDist xs])
@@ -321,7 +325,6 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
 \end{frame}
 \begin{frame}[allowframebreaks]
   \frametitle{Monty Hall}
-  %{
   %format choice_1
   %format choice_2
   \begin{code}
@@ -337,7 +340,6 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
         return (Decision  {  stick   =  car   ==  choice_1
                           ,  switch  =  car   ==  choice_2 })
   \end{code}
-  %}
 
   \framebreak
   While we can interpret it in the normal way to solve the problem:
@@ -503,16 +505,15 @@ newtype Dist a = Dist { runDist :: [(a, Rational)] }
   $\mathcal{P}(\mathcal{M})$ is itself a measurable space: measuring is
   integrating over some variable $\textcolor{Sepia}{\mathit{a}}$ in
   $\mathcal{M}$.
-
-  \pause
+\end{frame}
+\begin{frame}
+  \frametitle{Implementation\footfullcite{tobin_implementing_2017}}
   In code (we restrict to measurable functions):
   \begin{code}
     newtype Measure a = Measure ((a -> Rational) -> Rational)
   \end{code}
-\end{frame}
-\begin{frame}
-  We now get $\eta$ and $\mu$:
-
+  \pause
+  We also get $\eta$ and $\mu$:
   \begin{code}
     integrate :: Measure a -> (a -> Rational) -> Rational
     integrate (Measure m) f = m f

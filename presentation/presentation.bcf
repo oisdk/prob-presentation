@@ -1977,19 +1977,15 @@
     <bcf:citekey order="1">gardner_2nd_1987</bcf:citekey>
     <bcf:citekey order="2">gardner_2nd_1987</bcf:citekey>
     <bcf:citekey order="3">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="4">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="5">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="6">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="7">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="8">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="9">gardner_2nd_1987</bcf:citekey>
-    <bcf:citekey order="10">munroe_xkcd_2007</bcf:citekey>
-    <bcf:citekey order="11">erwig_functional_2006</bcf:citekey>
-    <bcf:citekey order="12">ramsey_stochastic_2002</bcf:citekey>
-    <bcf:citekey order="13">dold_categorical_1982</bcf:citekey>
-    <bcf:citekey order="14">reed_distance_2010</bcf:citekey>
-    <bcf:citekey order="15">box_linq_2007</bcf:citekey>
-    <bcf:citekey order="16">mcsherry_privacy_2010</bcf:citekey>
+    <bcf:citekey order="4">munroe_xkcd_2007</bcf:citekey>
+    <bcf:citekey order="5">erwig_functional_2006</bcf:citekey>
+    <bcf:citekey order="6">ramsey_stochastic_2002</bcf:citekey>
+    <bcf:citekey order="7">dold_categorical_1982</bcf:citekey>
+    <bcf:citekey order="8">tobin_implementing_2017</bcf:citekey>
+    <bcf:citekey order="9">tobin_implementing_2017</bcf:citekey>
+    <bcf:citekey order="10">reed_distance_2010</bcf:citekey>
+    <bcf:citekey order="11">box_linq_2007</bcf:citekey>
+    <bcf:citekey order="12">mcsherry_privacy_2010</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

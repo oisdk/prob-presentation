@@ -1,10 +1,10 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n}{p\PYGZus{}1} \PYG{o}{=} \PYG{n}{expect}\PYG{p}{(}
     \PYG{k}{lambda} \PYG{n}{children}\PYG{p}{:} \PYG{n+nb}{all}\PYG{p}{(}\PYG{n}{child}\PYG{o}{.}\PYG{n}{gender} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}girl\PYGZsq{}}
-                        \PYG{k}{for} \PYG{n}{child} \PYG{o+ow}{in} \PYG{n}{children}\PYG{p}{),}
+                         \PYG{k}{for} \PYG{n}{child} \PYG{o+ow}{in} \PYG{n}{children}\PYG{p}{),}
     \PYG{n}{mr\PYGZus{}jones}\PYG{p}{)}
 \PYG{n}{p\PYGZus{}2} \PYG{o}{=} \PYG{n}{expect}\PYG{p}{(}
     \PYG{k}{lambda} \PYG{n}{children}\PYG{p}{:} \PYG{n+nb}{all}\PYG{p}{(}\PYG{n}{child}\PYG{o}{.}\PYG{n}{gender} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}boy\PYGZsq{}}
-                        \PYG{k}{for} \PYG{n}{child} \PYG{o+ow}{in} \PYG{n}{children}\PYG{p}{),}
+                         \PYG{k}{for} \PYG{n}{child} \PYG{o+ow}{in} \PYG{n}{children}\PYG{p}{),}
     \PYG{n}{mr\PYGZus{}smith}\PYG{p}{)}
 \end{Verbatim}

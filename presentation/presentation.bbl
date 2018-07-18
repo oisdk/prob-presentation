@@ -382,6 +382,43 @@
       \verb http://dl.acm.org/citation.cfm?id=1863568
       \endverb
     \endentry
+    \entry{tobin_implementing_2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=495746c6d6f615295c5e73c3a264177e}{%
+           family={Tobin},
+           familyi={T\bibinitperiod},
+           given={Jared},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{495746c6d6f615295c5e73c3a264177e}
+      \strng{fullhash}{495746c6d6f615295c5e73c3a264177e}
+      \strng{bibnamehash}{495746c6d6f615295c5e73c3a264177e}
+      \strng{authorbibnamehash}{495746c6d6f615295c5e73c3a264177e}
+      \strng{authornamehash}{495746c6d6f615295c5e73c3a264177e}
+      \strng{authorfullhash}{495746c6d6f615295c5e73c3a264177e}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In my last post I went over the categorical and measure-theoretic foundations of the Giry monad, the `canonical' probability monad that operates on the level of probability measures. In this post I'll pick up from where I left off and talk about a neat and faithful (if impractical) implementation of the Giry monad that one can put together in Haskell.}
+      \field{journaltitle}{jtobin.io}
+      \field{month}{2}
+      \field{title}{Implementing the {{Giry Monad}}}
+      \field{urlday}{30}
+      \field{urlmonth}{6}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/doisinkidney/Zotero/storage/QAMUSHEC/giry-monad-implementation.html
+      \endverb
+      \verb{urlraw}
+      \verb https://jtobin.io/giry-monad-implementation
+      \endverb
+      \verb{url}
+      \verb https://jtobin.io/giry-monad-implementation
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
